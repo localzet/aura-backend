@@ -1,0 +1,133 @@
+services:
+  aura-db:
+    image: postgres:17
+    container_name: 'aura-db'
+    hostname: aura-db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - TZ=UTC
+    ports:
+      - '127.0.0.1:6767:5432'
+    volumes:
+      - aura-db-data:/var/lib/postgresql/data
+    networks:
+      - aura-network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      interval: 3s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  aura-redis:
+    image: valkey/valkey:8.0.2-alpine
+    container_name: aura-redis
+    hostname: aura-redis
+    restart: always
+    networks:
+      - aura-network
+    volumes:
+      - aura-redis-data:/data
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '10'
+    healthcheck:
+      test: ['CMD', 'valkey-cli', 'ping']
+      interval: 3s
+      timeout: 10s
+      retries: 3
+
+  aura-backend:
+    image: localzet/aura-backend:latest
+    container_name: 'aura-backend'
+    hostname: aura-backend
+    restart: always
+    ports:
+      - '127.0.0.1:3000:3000'
+    env_file:
+      - .env
+    networks:
+      - aura-network
+    depends_on:
+      aura-db:
+        condition: service_healthy
+      aura-redis:
+        condition: service_healthy
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  aura-subscriptions:
+    image: localzet/aura-subscriptions:latest
+    container_name: aura-subscriptions
+    hostname: aura-subscriptions
+    restart: always
+    environment:
+      - AURA_PANEL_URL=http://aura-backend:3000
+      - META_TITLE=Subscription page
+      - META_DESCRIPTION=Subscription page description
+    ports:
+      - '127.0.0.1:3010:3010'
+    networks:
+      - aura-network
+    depends_on:
+      - aura-backend
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  aura-cloudflared:
+    container_name: aura-cloudflared
+    hostname: aura-cloudflared
+    image: cloudflare/cloudflared:latest
+    env_file:
+      - .env
+    networks:
+      - aura-network
+    restart: always
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
+    depends_on:
+      - aura-backend
+      - aura-subscriptions
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '10'
+    healthcheck:
+      test: ['CMD', 'cloudflared', '--version']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  aura-network:
+    name: aura-network
+    driver: bridge
+    external: false
+
+volumes:
+  aura-db-data:
+    driver: local
+    external: false
+    name: aura-db-data
+  aura-redis-data:
+    driver: local
+    external: false
+    name: aura-redis-data

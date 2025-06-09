@@ -1,0 +1,319 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  uuid                     String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subscriptionUuid         String    @unique @default(dbgenerated("gen_random_uuid()")) @map("subscription_uuid") @db.Uuid
+  shortUuid                String    @unique @map("short_uuid")
+  username                 String    @unique @map("username")
+  status                   String    @default("ACTIVE") @map("status") // ENUM: active, disabled, limimted, expired
+  usedTrafficBytes         BigInt    @default(0) @map("used_traffic_bytes")
+  lifetimeUsedTrafficBytes BigInt    @default(0) @map("lifetime_used_traffic_bytes")
+  trafficLimitBytes        BigInt    @default(0) @map("traffic_limit_bytes")
+  trafficLimitStrategy     String    @default("NO_RESET") @map("traffic_limit_strategy") // ENUM: no_reset, day, week, month, year
+  subLastUserAgent         String?   @map("sub_last_user_agent")
+  subLastOpenedAt          DateTime? @map("sub_last_opened_at")
+
+  expireAt           DateTime  @map("expire_at")
+  onlineAt           DateTime? @map("online_at")
+  subRevokedAt       DateTime? @map("sub_revoked_at")
+  lastTrafficResetAt DateTime? @map("last_traffic_reset_at")
+
+  trojanPassword String @map("trojan_password")
+  vlessUuid      String @map("vless_uuid") @db.Uuid
+  ssPassword     String @map("ss_password")
+
+  description String? @map("description")
+  tag         String? @map("tag")
+
+  telegramId BigInt? @map("telegram_id")
+  email      String? @map("email")
+
+  hwidDeviceLimit Int? @map("hwid_device_limit")
+
+  firstConnectedAt       DateTime? @map("first_connected_at")
+  lastTriggeredThreshold Int       @default(0) @map("last_triggered_threshold") // 1-99
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  nodesUserUsageHistory NodesUserUsageHistory[]
+  activeUserInbounds    ActiveUserInbounds[]
+  userTrafficHistory    UserTrafficHistory[]
+  hwidUserDevices       HwidUserDevices[]
+
+  @@index([tag])
+  @@map("users")
+}
+
+model ApiTokens {
+  uuid             String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  token            String  @unique @map("token")
+  tokenName        String  @map("token_name")
+  tokenDescription String? @map("token_description")
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  @@map("api_tokens")
+}
+
+model Admin {
+  uuid         String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username     String @unique @map("username")
+  passwordHash String @map("password_hash")
+  role         String @map("role")
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  @@map("admin")
+}
+
+model Keygen {
+  uuid       String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  privKey    String  @map("priv_key")
+  pubKey     String  @map("pub_key")
+  caCert     String? @map("ca_cert")
+  caKey      String? @map("ca_key")
+  clientCert String? @map("client_cert")
+  clientKey  String? @map("client_key")
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  @@map("keygen")
+}
+
+model Nodes {
+  uuid    String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name    String @unique @map("name")
+  address String @unique @map("address")
+  port    Int?   @map("port")
+
+  isConnected  Boolean @default(false) @map("is_connected")
+  isConnecting Boolean @default(false) @map("is_connecting")
+  isDisabled   Boolean @default(false) @map("is_disabled")
+
+  isNodeOnline  Boolean @default(false) @map("is_node_online")
+  isXrayRunning Boolean @default(false) @map("is_xray_running")
+
+  lastStatusChange  DateTime? @map("last_status_change")
+  lastStatusMessage String?   @map("last_status_message")
+  xrayVersion       String?   @map("xray_version")
+  xrayUptime        String    @default("0") @map("xray_uptime")
+
+  usersOnline           Int?   @default(0) @map("users_online")
+  consumptionMultiplier BigInt @default(1000000000) @map("consumption_multiplier")
+
+  isTrafficTrackingActive Boolean @default(false) @map("is_traffic_tracking_active")
+  trafficResetDay         Int?    @default(1) @map("traffic_reset_day")
+  trafficLimitBytes       BigInt? @default(0) @map("traffic_limit_bytes")
+  trafficUsedBytes        BigInt? @default(0) @map("traffic_used_bytes")
+  notifyPercent           Int?    @default(0) @map("notify_percent")
+
+  viewPosition Int    @default(autoincrement()) @map("view_position")
+  countryCode  String @default("XX") @map("country_code")
+
+  cpuCount Int?    @map("cpu_count")
+  cpuModel String? @map("cpu_model")
+  totalRam String? @map("total_ram")
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  nodesTrafficUsageHistory NodesTrafficUsageHistory[]
+  nodesUserUsageHistory    NodesUserUsageHistory[]
+  nodesUsageHistory        NodesUsageHistory[]
+  inboundsExclusions       NodeInboundExclusions[]
+
+  @@map("nodes")
+}
+
+model NodeInboundExclusions {
+  nodeUuid    String @map("node_uuid") @db.Uuid
+  inboundUuid String @map("inbound_uuid") @db.Uuid
+
+  node    Nodes    @relation(fields: [nodeUuid], references: [uuid], onDelete: Cascade)
+  inbound Inbounds @relation(fields: [inboundUuid], references: [uuid], onDelete: Cascade)
+
+  @@id([nodeUuid, inboundUuid])
+  @@map("node_inbound_exclusions")
+}
+
+model NodesTrafficUsageHistory {
+  id           BigInt   @id @default(autoincrement())
+  nodeUuid     String   @map("node_uuid") @db.Uuid
+  trafficBytes BigInt   @map("traffic_bytes")
+  resetAt      DateTime @default(dbgenerated("now()")) @map("reset_at")
+
+  node Nodes @relation(fields: [nodeUuid], references: [uuid], onDelete: Cascade)
+
+  @@map("nodes_traffic_usage_history")
+}
+
+model NodesUserUsageHistory {
+  nodeUuid      String @map("node_uuid") @db.Uuid
+  userUuid      String @map("user_uuid") @db.Uuid
+  downloadBytes BigInt @map("download_bytes")
+  uploadBytes   BigInt @map("upload_bytes")
+  totalBytes    BigInt @map("total_bytes")
+
+  createdAt DateTime @default(dbgenerated("date_trunc('hour', now())")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  node Nodes @relation(fields: [nodeUuid], references: [uuid], onDelete: Cascade)
+  user Users @relation(fields: [userUuid], references: [uuid], onDelete: Cascade)
+
+  @@id([nodeUuid, userUuid, createdAt])
+  @@index([userUuid, updatedAt(sort: Desc)])
+  @@index([nodeUuid, createdAt(sort: Desc)])
+  @@map("nodes_user_usage_history")
+}
+
+model NodesUsageHistory {
+  nodeUuid      String @map("node_uuid") @db.Uuid
+  downloadBytes BigInt @map("download_bytes")
+  uploadBytes   BigInt @map("upload_bytes")
+  totalBytes    BigInt @map("total_bytes")
+
+  createdAt DateTime @default(dbgenerated("date_trunc('hour', now())")) @map("created_at")
+
+  node Nodes @relation(fields: [nodeUuid], references: [uuid], onDelete: Cascade)
+
+  @@id([nodeUuid, createdAt])
+  @@index([nodeUuid, createdAt(sort: Desc)])
+  @@map("nodes_usage_history")
+}
+
+model UserTrafficHistory {
+  id        BigInt   @id @default(autoincrement())
+  userUuid  String   @map("user_uuid") @db.Uuid
+  usedBytes BigInt   @map("used_bytes")
+  resetAt   DateTime @default(dbgenerated("now()")) @map("reset_at")
+
+  user Users @relation(fields: [userUuid], references: [uuid], onDelete: Cascade)
+
+  @@map("user_traffic_history")
+}
+
+model XrayConfig {
+  uuid      String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  config    Json?    @map("config")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  @@map("xray_config")
+}
+
+model Inbounds {
+  uuid     String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tag      String  @unique @map("tag")
+  type     String  @map("type")
+  network  String? @map("network")
+  security String? @map("security")
+
+  hosts              Hosts[]
+  activeUserInbounds ActiveUserInbounds[]
+  nodeExclusions     NodeInboundExclusions[]
+
+  @@map("inbounds")
+}
+
+model Hosts {
+  uuid             String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  inboundUuid      String  @map("inbound_uuid") @db.Uuid
+  viewPosition     Int     @default(autoincrement()) @map("view_position")
+  remark           String  @unique @map("remark")
+  address          String  @map("address")
+  port             Int     @map("port")
+  path             String? @map("path")
+  sni              String? @map("sni")
+  host             String? @map("host")
+  alpn             String? @map("alpn") // ENUM: h2, http/1.1, h2,http/1.1 
+  fingerprint      String? @map("fingerprint") // ENUM: chrome, firefox, safari, ios, android, edge, 360, qq, random, randomized
+  securityLayer    String  @default("DEFAULT") @map("security_layer") // ENUM: DEFAULT, TLS, NONE
+  allowInsecure    Boolean @default(false) @map("allowinsecure")
+  xHttpExtraParams Json?   @map("xhttp_extra_params")
+  isDisabled       Boolean @default(false) @map("is_disabled")
+
+  inboundTag Inbounds @relation(fields: [inboundUuid], references: [uuid], onDelete: Cascade)
+
+  @@map("hosts")
+}
+
+model ActiveUserInbounds {
+  userUuid    String @map("user_uuid") @db.Uuid
+  inboundUuid String @map("inbound_uuid") @db.Uuid
+
+  user    Users    @relation(fields: [userUuid], references: [uuid], onDelete: Cascade)
+  inbound Inbounds @relation(fields: [inboundUuid], references: [uuid], onDelete: Cascade)
+
+  @@id([userUuid, inboundUuid])
+  @@index([userUuid])
+  @@map("active_user_inbounds")
+}
+
+model SubscriptionTemplate {
+  uuid         String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  templateType String  @map("template_type")
+  templateYaml String? @map("template_yaml")
+  templateJson Json?   @map("template_json")
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  @@unique([templateType])
+  @@map("subscription_templates")
+}
+
+model SubscriptionSettings {
+  uuid                          String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  profileTitle                  String  @map("profile_title")
+  supportLink                   String  @map("support_link")
+  profileUpdateInterval         Int     @map("profile_update_interval")
+  isProfileWebpageUrlEnabled    Boolean @default(true) @map("is_profile_webpage_url_enabled")
+  serveJsonAtBaseSubscription   Boolean @default(false) @map("serve_json_at_base_subscription")
+  addUsernameToBaseSubscription Boolean @default(false) @map("add_username_to_base_subscription")
+  happAnnounce                  String? @map("happ_announce")
+  happRouting                   String? @map("happ_routing")
+  isShowCustomRemarks           Boolean @default(true) @map("is_show_custom_remarks")
+  expiredUsersRemarks           Json    @map("expired_users_remarks")
+  limitedUsersRemarks           Json    @map("limited_users_remarks")
+  disabledUsersRemarks          Json    @map("disabled_users_remarks")
+  customResponseHeaders         Json?   @map("custom_response_headers")
+  randomizeHosts                Boolean @default(false) @map("randomize_hosts")
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  @@map("subscription_settings")
+}
+
+model HwidUserDevices {
+  hwid        String  @map("hwid")
+  userUuid    String  @map("user_uuid") @db.Uuid
+  platform    String? @map("platform")
+  osVersion   String? @map("os_version")
+  deviceModel String? @map("device_model")
+  userAgent   String? @map("user_agent")
+
+  user Users @relation(fields: [userUuid], references: [uuid], onDelete: Cascade)
+
+  createdAt DateTime @default(dbgenerated("now()")) @map("created_at")
+  updatedAt DateTime @default(dbgenerated("now()")) @updatedAt @map("updated_at")
+
+  @@id([hwid, userUuid])
+  @@map("hwid_user_devices")
+}

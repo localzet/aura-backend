@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "tsConfigPath": "tsconfig.json"
+  },
+  "projects": {
+    "app": {
+      "type": "application",
+      "sourceRoot": "src",
+      "entryFile": "main"
+    },
+    "processors": {
+      "type": "application",
+      "sourceRoot": "src/bin/processors",
+      "entryFile": "processors"
+    },
+    "scheduler": {
+      "type": "application",
+      "sourceRoot": "src/bin/scheduler",
+      "entryFile": "scheduler"
+    },
+    "gen-doc": {
+      "type": "application",
+      "sourceRoot": "src/bin/gen-doc",
+      "entryFile": "gen-doc"
+    }
+  }
+}

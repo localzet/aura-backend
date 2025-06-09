@@ -1,0 +1,10 @@
+services:
+  aura:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aura
+    restart: always
+    network_mode: host
+    env_file:
+      - .env

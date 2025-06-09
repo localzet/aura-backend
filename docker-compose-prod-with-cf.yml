@@ -1,0 +1,85 @@
+services:
+  aura-db:
+    image: postgres:17
+    container_name: 'aura-db'
+    hostname: aura-db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - TZ=UTC
+    ports:
+      - '127.0.0.1:6767:5432'
+    volumes:
+      - aura-db-data:/var/lib/postgresql/data
+    networks:
+      - aura-network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      interval: 3s
+      timeout: 10s
+      retries: 3
+
+  aura:
+    image: localzet/aura-backend:latest
+    container_name: 'aura-backend'
+    hostname: aura-backend
+    restart: always
+    ports:
+      - '127.0.0.1:3000:3000'
+    env_file:
+      - .env
+    networks:
+      - aura-network
+    depends_on:
+      aura-db:
+        condition: service_healthy
+      aura-redis:
+        condition: service_healthy
+
+  aura-redis:
+    image: valkey/valkey:8.0.2-alpine
+    container_name: aura-redis
+    hostname: aura-redis
+    restart: always
+    networks:
+      - aura-network
+    volumes:
+      - aura-redis-data:/data
+    healthcheck:
+      test: [ "CMD", "valkey-cli", "ping" ]
+      interval: 3s
+      timeout: 10s
+      retries: 3
+
+  aura-cloudflared:
+    container_name: aura-cloudflared
+    image: cloudflare/cloudflared:latest
+
+    env_file:
+      - .env
+    networks:
+      - aura-network
+    restart: always
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
+    depends_on:
+      - aura-backend
+
+networks:
+  aura-network:
+    name: aura-network
+    driver: bridge
+    external: false
+
+volumes:
+  aura-db-data:
+    driver: local
+    external: false
+    name: aura-db-data
+  aura-redis-data:
+    driver: local
+    external: false
+    name: aura-redis-data
