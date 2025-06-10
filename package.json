@@ -1,6 +1,6 @@
 {
   "name": "@localzet/aura-backend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aura Backend",
   "private": false,
   "type": "commonjs",
@@ -69,7 +69,7 @@
     "@peculiar/webcrypto": "^1.5.0",
     "@peculiar/x509": "^1.12.3",
     "@prisma/client": "6.5.0",
-    "@localzet/aura-node-contract": "1.0.0",
+    "@localzet/aura-node-contract": "^1.0.0",
     "@localzet/xtls-sdk": "^1.0.0",
     "@scalar/nestjs-api-reference": "^0.5.1",
     "@supercharge/request-ip": "^1.2.0",
