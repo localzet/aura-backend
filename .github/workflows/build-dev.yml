@@ -1,11 +1,11 @@
 name: Build Dev
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - dev
 
-  workflow_dispatch:
 
 jobs:
   send-start-deploy-telegram-message:

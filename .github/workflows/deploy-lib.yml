@@ -1,10 +1,12 @@
 name: Deploy backend contracts
 on:
+  workflow_dispatch:
   push:
     branches: [ '**' ]
     paths:
       - 'libs/**/package.json'
       - '.github/workflows/deploy-lib.yml'
+
 jobs:
   send-start-deploy-telegram-message:
     name: 📢 Send Telegram message

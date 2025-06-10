@@ -1,11 +1,10 @@
 name: Build&Push Release Docker Image
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - '*'
-
-  workflow_dispatch:
 
 jobs:
   send-start-deploy-telegram-message:

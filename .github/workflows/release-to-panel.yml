@@ -1,10 +1,9 @@
 name: Release to Panel
 
 on:
+  workflow_dispatch:
   release:
     types: [published]
-
-  workflow_dispatch:
 
 jobs:
   create-release:
