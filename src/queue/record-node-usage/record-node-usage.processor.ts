@@ -4,7 +4,7 @@ import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { CommandBus } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
-import { GetAllOutboundsStatsCommand } from '@localzet/aura-node-contract';
+import { GetAllOutboundsStatsCommand } from '@localzet/aura-contract';
 
 import { ICommandResponse } from '@common/types/command-response.type';
 import { AxiosService } from '@common/axios';

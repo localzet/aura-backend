@@ -21,7 +21,7 @@ import {
     RemoveUserCommand,
     StartXrayCommand,
     StopXrayCommand,
-} from '@localzet/aura-node-contract';
+} from '@localzet/aura-contract';
 
 import { GetNodeJwtCommand, IGetNodeJwtResponse } from '@modules/keygen/commands/get-node-jwt';
 

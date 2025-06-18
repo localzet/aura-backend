@@ -5,7 +5,7 @@ import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
-import { GetUsersStatsCommand } from '@localzet/aura-node-contract';
+import { GetUsersStatsCommand } from '@localzet/aura-contract';
 
 import { ICommandResponse } from '@common/types/command-response.type';
 import { fromNanoToNumber } from '@common/utils/nano';

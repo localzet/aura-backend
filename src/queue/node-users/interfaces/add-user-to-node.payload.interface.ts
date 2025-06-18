@@ -1,4 +1,4 @@
-import { AddUserCommand as AddUserToNodeCommandSdk } from '@localzet/aura-node-contract/build/commands';
+import { AddUserCommand as AddUserToNodeCommandSdk } from '@localzet/aura-contract/build/commands';
 
 export interface IAddUserToNodePayload {
     data: AddUserToNodeCommandSdk.Request;

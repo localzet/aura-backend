@@ -1,7 +1,7 @@
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
-import { AddUserCommand as AddUserToNodeCommandSdk, CipherType } from '@localzet/aura-node-contract/build/commands';
+import { AddUserCommand as AddUserToNodeCommandSdk, CipherType } from '@localzet/aura-contract/build/commands';
 
 import { getVlessFlowFromDbInbound } from '@common/utils/flow/get-vless-flow';
 

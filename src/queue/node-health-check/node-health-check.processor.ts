@@ -5,7 +5,7 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { CommandBus } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
-import { GetSystemStatsCommand } from '@localzet/aura-node-contract';
+import { GetSystemStatsCommand } from '@localzet/aura-contract';
 
 import { ICommandResponse } from '@common/types/command-response.type';
 import { AxiosService } from '@common/axios';
