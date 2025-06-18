@@ -33,7 +33,6 @@ COPY --from=backend-build /opt/app/node_modules ./node_modules
 
 COPY configs /var/lib/aura/configs
 COPY package*.json ./
-COPY libs ./libs
 
 COPY ecosystem.config.js ./
 COPY docker-entrypoint.sh ./
