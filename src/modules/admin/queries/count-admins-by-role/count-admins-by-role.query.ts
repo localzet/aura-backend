@@ -1,4 +1,4 @@
-import { TRoleTypes } from '@libs/contracts/constants';
+import { TRoleTypes } from '@localzet/aura-backend-contract/constants';
 
 export class CountAdminsByRoleQuery {
     constructor(public readonly role: TRoleTypes) {

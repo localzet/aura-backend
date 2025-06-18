@@ -61,7 +61,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repository: localzet/aura-docks
+          repository: localzet/aura-docs
           tag_name: ${{ github.ref_name }}
           target_commitish: ${{ steps.commit.outputs.sha }}
           name: v${{ github.ref_name }}

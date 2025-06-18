@@ -16,7 +16,7 @@ import { PrismaModule } from '@common/database';
 
 import { IntegrationModules } from '@integration-modules/integration-modules';
 
-import { RemnawaveModules } from '@modules/aura-backend.modules';
+import { AuraModules } from '@modules/aura-backend.modules';
 
 import { QueueModule } from '@queue/queue.module';
 
@@ -47,7 +47,7 @@ import { QueueModule } from '@queue/queue.module';
         }),
 
         IntegrationModules,
-        RemnawaveModules,
+        AuraModules,
         ServeStaticModule.forRootAsync({
             imports: [ConfigModule],
             inject: [ConfigService],

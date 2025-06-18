@@ -8,7 +8,7 @@ import {
     BulkRevokeUsersSubscriptionCommand,
     BulkUpdateUsersCommand,
     BulkUpdateUsersInboundsCommand,
-} from '@libs/contracts/commands';
+} from '@localzet/aura-backend-contract/commands';
 
 export class BulkResetTrafficUsersRequestDto extends createZodDto(
     BulkResetTrafficUsersCommand.RequestSchema,

@@ -4,8 +4,8 @@ services:
     container_name: aura-db
     hostname: aura-db
     restart: always
-    command: postgres -c 'max_connections=5000'
-    shm_size: 8gb
+    # command: postgres -c 'max_connections=5000'
+    # shm_size: 8gb
     env_file:
       - .env
     environment:
@@ -14,20 +14,44 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - TZ=UTC
     ports:
-      - '127.0.0.1:5437:5432'
-    networks:
-      - aura-network
+      - '5432:5432'
+    # networks:
+    #   - aura-network
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - aura-db-data:/var/lib/postgresql/data
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
       interval: 3s
       timeout: 10s
       retries: 3
 
-volumes:
-  postgres_data:
+  aura-redis:
+    image: valkey/valkey:8.0.2-alpine
+    container_name: aura-redis
+    hostname: aura-redis
+    restart: always
+    ports:
+      - '6379:6379'
+    # networks:
+    #   - aura-network
+    volumes:
+      - aura-redis-data:/data
+    healthcheck:
+      test: [ "CMD", "valkey-cli", "ping" ]
+      interval: 3s
+      timeout: 10s
+      retries: 3
 
-networks:
-  aura-network:
-    external: true
+volumes:
+  aura-db-data:
+    driver: local
+    external: false
+    name: aura-db-data
+  aura-redis-data:
+    driver: local
+    external: false
+    name: aura-redis-data
+
+#networks:
+#  aura-network:
+#    external: true

@@ -1,5 +1,5 @@
-import { ROLE, SUBSCRIPTION_TEMPLATE_TYPE_VALUES, TSubscriptionTemplateType } from '@contract/constants';
-import { SUBSCRIPTION_TEMPLATE_CONTROLLER } from '@contract/api';
+import { ROLE, SUBSCRIPTION_TEMPLATE_TYPE_VALUES, TSubscriptionTemplateType } from '@localzet/aura-backend-contract/constants';
+import { SUBSCRIPTION_TEMPLATE_CONTROLLER } from '@localzet/aura-backend-contract/api';
 
 import { Body, Controller, HttpStatus, Param, UseFilters, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';

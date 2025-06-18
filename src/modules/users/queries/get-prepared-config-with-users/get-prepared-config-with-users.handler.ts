@@ -4,7 +4,7 @@ import { Logger } from '@nestjs/common';
 import { XRayConfig } from '@common/helpers/xray-config/xray-config.validator';
 import { ICommandResponse } from '@common/types/command-response.type';
 import { IXrayConfig } from '@common/helpers/xray-config/interfaces';
-import { ERRORS } from '@libs/contracts/constants';
+import { ERRORS } from '@localzet/aura-backend-contract/constants';
 
 import { XrayConfigEntity } from '@modules/xray-config/entities/xray-config.entity';
 import { GetXrayConfigQuery } from '@modules/xray-config/queries/get-xray-config';

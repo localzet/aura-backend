@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { RegisterCommand } from '@libs/contracts/commands';
+import { RegisterCommand } from '@localzet/aura-backend-contract/commands';
 
 export class RegisterRequestDto extends createZodDto(RegisterCommand.RequestSchema) {
 }

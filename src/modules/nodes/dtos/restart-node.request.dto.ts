@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { RestartNodeCommand } from '@contract/commands';
+import { RestartNodeCommand } from '@localzet/aura-backend-contract/commands';
 
 export class RestartNodeRequestDto extends createZodDto(RestartNodeCommand.RequestSchema) {
 }

@@ -652,7 +652,7 @@ async function seedSubscriptionSettings() {
     await prisma.subscriptionSettings.create({
         data: {
             profileTitle: 'Aura',
-            supportLink: 'https://remna.st',
+            supportLink: 'https://aura.zorin.space',
             profileUpdateInterval: 12,
             isProfileWebpageUrlEnabled: true,
             expiredUsersRemarks: expiredUserRemarks,

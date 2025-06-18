@@ -1,10 +1,76 @@
 services:
-  aura:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: aura
+  aura-db:
+    image: postgres:17
+    container_name: aura-db
+    hostname: aura-db
     restart: always
-    network_mode: host
+    # command: postgres -c 'max_connections=5000'
+    # shm_size: 8gb
     env_file:
-      - .env
+     - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - TZ=UTC
+    ports:
+      - '5432:5432'
+    # networks:
+    #   - aura-network
+    volumes:
+      - aura-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      interval: 3s
+      timeout: 10s
+      retries: 3
+
+  aura-redis:
+    image: valkey/valkey:8.0.2-alpine
+    container_name: aura-redis
+    hostname: aura-redis
+    restart: always
+    ports:
+      - '6379:6379'
+    # networks:
+    #   - aura-network
+    volumes:
+      - aura-redis-data:/data
+    healthcheck:
+      test: [ "CMD", "valkey-cli", "ping" ]
+      interval: 3s
+      timeout: 10s
+      retries: 3
+
+  aura-backend:
+    image: localzet/aura-backend:latest
+    container_name: aura-backend
+    hostname: aura-backend
+    restart: always
+    env_file:
+     - .env
+    ports:
+      - '3000:3000'
+    # networks:
+    #   - aura-network
+    depends_on:
+      aura-db:
+        condition: service_healthy
+      aura-redis:
+        condition: service_healthy
+
+#networks:
+#  aura-network:
+#    name: aura-network
+#    driver: bridge
+#    external: true
+
+volumes:
+  aura-db-data:
+    driver: local
+    external: false
+    name: aura-db-data
+  aura-redis-data:
+    driver: local
+    external: false
+    name: aura-redis-data

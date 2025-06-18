@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { GetUserByTelegramIdCommand } from '@libs/contracts/commands';
+import { GetUserByTelegramIdCommand } from '@localzet/aura-backend-contract/commands';
 
 export class GetUserByTelegramIdRequestDto extends createZodDto(
     GetUserByTelegramIdCommand.RequestSchema,

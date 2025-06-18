@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { GetNodesUsageByRangeCommand } from '@contract/commands';
+import { GetNodesUsageByRangeCommand } from '@localzet/aura-backend-contract/commands';
 
 export class GetNodesUsageByRangeRequestQueryDto extends createZodDto(
     GetNodesUsageByRangeCommand.RequestQuerySchema,

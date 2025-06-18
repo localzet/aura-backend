@@ -1,5 +1,5 @@
-import { SUBSCRIPTION_SETTINGS_CONTROLLER } from '@contract/api';
-import { ROLE } from '@contract/constants';
+import { SUBSCRIPTION_SETTINGS_CONTROLLER } from '@localzet/aura-backend-contract/api';
+import { ROLE } from '@localzet/aura-backend-contract/constants';
 
 import { Body, Controller, HttpStatus, UseFilters, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';

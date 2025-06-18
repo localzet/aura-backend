@@ -6,7 +6,7 @@ import { QueryBus } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { EVENTS } from '@libs/contracts/constants';
+import { EVENTS } from '@localzet/aura-backend-contract/constants';
 
 import { UserEvent } from '@integration-modules/notifications/interfaces';
 

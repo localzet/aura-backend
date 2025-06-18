@@ -1,4 +1,4 @@
-import { TUsersStatus } from '@contract/constants';
+import { TUsersStatus } from '@localzet/aura-backend-contract/constants';
 
 export class ChangeUserStatusCommand {
     constructor(

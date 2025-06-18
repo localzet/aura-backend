@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { LoginCommand } from '@libs/contracts/commands';
+import { LoginCommand } from '@localzet/aura-backend-contract/commands';
 
 export class LoginRequestDto extends createZodDto(LoginCommand.RequestSchema) {
 }

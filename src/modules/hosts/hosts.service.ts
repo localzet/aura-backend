@@ -3,7 +3,7 @@ import { Prisma } from '@prisma/client';
 import { Injectable, Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@libs/contracts/constants';
+import { ERRORS } from '@localzet/aura-backend-contract/constants';
 
 import { ReorderHostRequestDto } from '@modules/hosts/dtos/reorder-hosts.dto';
 

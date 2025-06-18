@@ -1,4 +1,4 @@
-import { TRolesKeys } from '@libs/contracts/constants';
+import { TRolesKeys } from '@localzet/aura-backend-contract/constants';
 
 export interface IJWTAuthPayload {
     role: TRolesKeys;

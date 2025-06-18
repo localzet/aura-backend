@@ -1,4 +1,4 @@
-import { ERRORS } from '@contract/constants';
+import { ERRORS } from '@localzet/aura-backend-contract/constants';
 
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';

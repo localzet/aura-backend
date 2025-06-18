@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
-import { TemplateKeys } from '@libs/contracts/constants/templates/template-keys';
-import { USER_STATUSES_TEMPLATE } from '@libs/contracts/constants';
+import { TemplateKeys } from '@localzet/aura-backend-contract/constants/templates/template-keys';
+import { USER_STATUSES_TEMPLATE } from '@localzet/aura-backend-contract/constants';
 
 import { UserWithActiveInboundsEntity } from '@modules/users/entities/user-with-active-inbounds.entity';
 

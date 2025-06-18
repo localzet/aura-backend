@@ -5,7 +5,7 @@ import { CommandBus } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { TUsersStatus, USERS_STATUS } from '@libs/contracts/constants';
+import { TUsersStatus, USERS_STATUS } from '@localzet/aura-backend-contract/constants';
 
 import { BulkDeleteByStatusCommand } from '@modules/users/commands/bulk-delete-by-status/bulk-delete-by-status.command';
 

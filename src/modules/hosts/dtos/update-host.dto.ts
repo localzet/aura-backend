@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { UpdateHostCommand } from '@libs/contracts/commands';
+import { UpdateHostCommand } from '@localzet/aura-backend-contract/commands';
 
 export class UpdateHostRequestDto extends createZodDto(UpdateHostCommand.RequestSchema) {
 }

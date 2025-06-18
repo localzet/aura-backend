@@ -2,7 +2,7 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@libs/contracts/constants';
+import { ERRORS } from '@localzet/aura-backend-contract/constants';
 
 import { NodesRepository } from '../../repositories/nodes.repository';
 import { NodesEntity } from '../../entities/nodes.entity';

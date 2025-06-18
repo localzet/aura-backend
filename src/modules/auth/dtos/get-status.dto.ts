@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { GetStatusCommand } from '@libs/contracts/commands';
+import { GetStatusCommand } from '@localzet/aura-backend-contract/commands';
 
 export class GetStatusResponseDto extends createZodDto(GetStatusCommand.ResponseSchema) {
 }

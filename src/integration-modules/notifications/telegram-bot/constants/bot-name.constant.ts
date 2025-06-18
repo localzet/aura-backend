@@ -1,1 +1,1 @@
-export const BOT_NAME = 'RemnawaveBot';
+export const BOT_NAME = 'AuraBot';

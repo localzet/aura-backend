@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { GetUserHwidDevicesCommand } from '@contract/commands';
+import { GetUserHwidDevicesCommand } from '@localzet/aura-backend-contract/commands';
 
 export class GetUserHwidDevicesRequestDto extends createZodDto(
     GetUserHwidDevicesCommand.RequestSchema,

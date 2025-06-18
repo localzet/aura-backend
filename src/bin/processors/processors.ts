@@ -9,7 +9,7 @@ import { WorkerRoutesGuard } from '@common/guards/worker-routes/worker-routes.gu
 import { customLogFilter } from '@common/utils/filter-logs/filter-logs';
 import { isDevelopment } from '@common/utils/startup-app';
 import { AxiosService } from '@common/axios';
-import { METRICS_ROOT } from '@libs/contracts/api';
+import { METRICS_ROOT } from '@localzet/aura-backend-contract/api';
 
 import { ProcessorsRootModule } from './processors.root.module';
 

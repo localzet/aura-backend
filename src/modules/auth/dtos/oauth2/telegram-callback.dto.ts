@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { TelegramCallbackCommand } from '@libs/contracts/commands';
+import { TelegramCallbackCommand } from '@localzet/aura-backend-contract/commands';
 
 export class TelegramCallbackRequestDto extends createZodDto(
     TelegramCallbackCommand.RequestSchema,

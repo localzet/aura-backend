@@ -1,6 +1,6 @@
 import { Hosts } from '@prisma/client';
 
-import { TSecurityLayers } from '@contract/constants';
+import { TSecurityLayers } from '@localzet/aura-backend-contract/constants';
 
 export class HostsEntity implements Hosts {
     uuid: string;

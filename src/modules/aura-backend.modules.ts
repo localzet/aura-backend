@@ -46,5 +46,5 @@ import { AuthModule } from './auth/auth.module';
         ConditionalModule.registerWhen(AuraServiceModule, () => isScheduler()),
     ],
 })
-export class RemnawaveModules {
+export class AuraModules {
 }

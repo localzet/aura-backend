@@ -17,7 +17,7 @@ import { AxiosModule } from '@common/axios';
 
 import { PrometheusReporterModule } from '@integration-modules/prometheus-reporter/prometheus-reporter.module';
 
-import { RemnawaveModules } from '@modules/aura-backend.modules';
+import { AuraModules } from '@modules/aura-backend.modules';
 
 import { SchedulerModule } from '@scheduler/scheduler.module';
 
@@ -49,7 +49,7 @@ import { SchedulerModule } from '@scheduler/scheduler.module';
             wildcard: true,
             delimiter: '.',
         }),
-        RemnawaveModules,
+        AuraModules,
         PrometheusReporterModule,
 
         ScheduleModule.forRoot(),

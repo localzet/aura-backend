@@ -14,7 +14,7 @@ import { configSchema, Env } from '@common/config/app-config';
 import { PrismaModule } from '@common/database';
 import { AxiosModule } from '@common/axios';
 
-import { RemnawaveModules } from '@modules/aura-backend.modules';
+import { AuraModules } from '@modules/aura-backend.modules';
 
 @Module({
     imports: [
@@ -46,7 +46,7 @@ import { RemnawaveModules } from '@modules/aura-backend.modules';
             delimiter: '.',
         }),
 
-        RemnawaveModules,
+        AuraModules,
         QueueModule,
     ],
     controllers: [],

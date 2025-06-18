@@ -7,7 +7,7 @@ import { BullModule } from '@nestjs/bullmq';
 
 import { BasicAuthMiddleware } from '@common/middlewares';
 import { useBullBoard } from '@common/utils/startup-app';
-import { BULLBOARD_ROOT } from '@libs/contracts/api';
+import { BULLBOARD_ROOT } from '@localzet/aura-backend-contract/api';
 
 import { ExpireUserNotificationsQueueModule } from './expire-user-notifications/expire-user-notifications.module';
 import { FirstConnectedUsersQueueModule } from './first-connected-users/first-connected-users.module';
@@ -52,7 +52,7 @@ const bullBoard = [
             uiConfig: {
                 boardTitle: 'Aura',
                 boardLogo: {
-                    path: 'https://remna.st/img/logo.svg',
+                    path: 'https://aura.zorin.space/img/logo.svg',
                     width: 32,
                     height: 32,
                 },
@@ -70,7 +70,7 @@ const bullBoard = [
                     },
                     {
                         text: 'Aura',
-                        url: 'https://remna.st',
+                        url: 'https://aura.zorin.space',
                     },
                 ],
             },

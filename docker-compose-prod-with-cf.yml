@@ -23,7 +23,7 @@ services:
       timeout: 10s
       retries: 3
 
-  aura:
+  aura-backend:
     image: localzet/aura-backend:latest
     container_name: 'aura-backend'
     hostname: aura-backend
