@@ -2,7 +2,7 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { JwtService } from '@nestjs/jwt';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ROLE } from '@localzet/aura-contract/constants';
+import { ROLE } from '@localzet/aura-contract';
 
 import { SignApiTokenCommand } from './sign-api-token.command';
 import { IJWTAuthPayload } from '../../interfaces';

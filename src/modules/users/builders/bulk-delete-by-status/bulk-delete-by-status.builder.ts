@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 
-import { TUsersStatus } from '@localzet/aura-contract/constants';
+import { TUsersStatus } from '@localzet/aura-contract';
 
 export class BulkDeleteByStatusBuilder {
     public query: Prisma.Sql;

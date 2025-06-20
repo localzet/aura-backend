@@ -2,7 +2,7 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@localzet/aura-contract/constants';
+import { ERRORS } from '@localzet/aura-contract';
 
 import { AdminRepository } from '../../repositories/admin.repository';
 import { CountAdminsByRoleQuery } from './count-admins-by-role.query';

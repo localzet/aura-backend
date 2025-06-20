@@ -7,9 +7,9 @@ import { HttpExceptionFilter } from '@common/exception/httpException.filter';
 import { extractHwidHeaders } from '@common/utils/extract-hwid-headers';
 import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
-import { SUBSCRIPTION_CONTROLLER, SUBSCRIPTION_ROUTES } from '@localzet/aura-contract/api';
-import { GetSubscriptionInfoByShortUuidCommand } from '@localzet/aura-contract/commands';
-import { REQUEST_TEMPLATE_TYPE } from '@localzet/aura-contract/constants';
+import { SUBSCRIPTION_CONTROLLER, SUBSCRIPTION_ROUTES } from '@localzet/aura-contract';
+import { GetSubscriptionInfoByShortUuidCommand } from '@localzet/aura-contract';
+import { REQUEST_TEMPLATE_TYPE } from '@localzet/aura-contract';
 
 import {
     GetOutlineSubscriptionRequestDto,

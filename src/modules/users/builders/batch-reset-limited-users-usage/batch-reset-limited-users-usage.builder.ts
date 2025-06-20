@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 
-import { TResetPeriods, USERS_STATUS } from '@localzet/aura-contract/constants';
+import { TResetPeriods, USERS_STATUS } from '@localzet/aura-contract';
 
 export class BatchResetLimitedUsersUsageBuilder {
     public query: Prisma.Sql;

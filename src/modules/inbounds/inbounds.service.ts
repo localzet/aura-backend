@@ -3,7 +3,7 @@ import { QueryBus } from '@nestjs/cqrs';
 
 import { ICommandResponse } from '@common/types/command-response.type';
 import { XRayConfig } from '@common/helpers/xray-config';
-import { ERRORS } from '@localzet/aura-contract/constants/errors';
+import { ERRORS } from '@localzet/aura-contract';
 
 import { GetValidatedConfigQuery } from '@modules/xray-config/queries/get-validated-config/get-validated-config.query';
 

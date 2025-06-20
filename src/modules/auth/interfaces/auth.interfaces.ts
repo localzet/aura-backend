@@ -1,4 +1,4 @@
-import { TRolesKeys } from '@localzet/aura-contract/constants';
+import { TRolesKeys } from '@localzet/aura-contract';
 
 export interface IJWTAuthPayload {
     role: TRolesKeys;

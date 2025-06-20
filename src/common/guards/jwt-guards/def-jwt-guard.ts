@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { QueryBus } from '@nestjs/cqrs';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ROLE } from '@localzet/aura-contract/constants';
+import { ROLE } from '@localzet/aura-contract';
 
 import { GetAdminByUsernameQuery } from '@modules/admin/queries/get-admin-by-username';
 import { GetTokenByUuidQuery } from '@modules/api-tokens/queries/get-token-by-uuid';

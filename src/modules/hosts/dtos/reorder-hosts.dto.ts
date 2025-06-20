@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { ReorderHostCommand } from '@localzet/aura-contract/commands';
+import { ReorderHostCommand } from '@localzet/aura-contract';
 
 export class ReorderHostRequestDto extends createZodDto(ReorderHostCommand.RequestSchema) {
 }

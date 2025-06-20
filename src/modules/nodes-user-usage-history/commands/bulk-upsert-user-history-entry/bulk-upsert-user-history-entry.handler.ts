@@ -1,4 +1,4 @@
-import { ERRORS } from '@localzet/aura-contract/constants';
+import { ERRORS } from '@localzet/aura-contract';
 
 import { TransactionalAdapterPrisma } from '@nestjs-cls/transactional-adapter-prisma';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';

@@ -1,6 +1,6 @@
 import { makeGaugeProvider } from '@willsoto/nestjs-prometheus';
 
-import { METRIC_NAMES } from '@localzet/aura-contract/constants';
+import { METRIC_NAMES } from '@localzet/aura-contract';
 
 export const METRIC_PROVIDERS = [
     makeGaugeProvider({

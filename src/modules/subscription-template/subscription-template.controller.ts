@@ -1,5 +1,5 @@
-import { ROLE, SUBSCRIPTION_TEMPLATE_TYPE_VALUES, TSubscriptionTemplateType } from '@localzet/aura-contract/constants';
-import { SUBSCRIPTION_TEMPLATE_CONTROLLER } from '@localzet/aura-contract/api';
+import { ROLE, SUBSCRIPTION_TEMPLATE_TYPE_VALUES, TSubscriptionTemplateType } from '@localzet/aura-contract';
+import { SUBSCRIPTION_TEMPLATE_CONTROLLER } from '@localzet/aura-contract';
 
 import { Body, Controller, HttpStatus, Param, UseFilters, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
@@ -10,7 +10,7 @@ import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetSubscriptionTemplateCommand, UpdateSubscriptionTemplateCommand } from '@localzet/aura-contract/commands';
+import { GetSubscriptionTemplateCommand, UpdateSubscriptionTemplateCommand } from '@localzet/aura-contract';
 
 import { GetTemplateRequestDto, GetTemplateResponseDto } from './dtos/get-template.dto';
 import { SubscriptionTemplateService } from './subscription-template.service';

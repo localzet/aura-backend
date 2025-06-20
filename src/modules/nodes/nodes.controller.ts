@@ -1,5 +1,5 @@
-import { NODES_CONTROLLER } from '@localzet/aura-contract/api';
-import { ROLE } from '@localzet/aura-contract/constants';
+import { NODES_CONTROLLER } from '@localzet/aura-contract';
+import { ROLE } from '@localzet/aura-contract';
 
 import { ApiBearerAuth, ApiCreatedResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Body, Controller, HttpStatus, Param, UseFilters, UseGuards } from '@nestjs/common';
@@ -21,7 +21,7 @@ import {
     RestartAllNodesCommand,
     RestartNodeCommand,
     UpdateNodeCommand,
-} from '@localzet/aura-contract/commands';
+} from '@localzet/aura-contract';
 
 import {
     CreateNodeRequestDto,

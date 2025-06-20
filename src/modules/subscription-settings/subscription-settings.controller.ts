@@ -1,5 +1,5 @@
-import { SUBSCRIPTION_SETTINGS_CONTROLLER } from '@localzet/aura-contract/api';
-import { ROLE } from '@localzet/aura-contract/constants';
+import { SUBSCRIPTION_SETTINGS_CONTROLLER } from '@localzet/aura-contract';
+import { ROLE } from '@localzet/aura-contract';
 
 import { Body, Controller, HttpStatus, UseFilters, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
@@ -10,7 +10,7 @@ import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetSubscriptionSettingsCommand, UpdateSubscriptionSettingsCommand } from '@localzet/aura-contract/commands';
+import { GetSubscriptionSettingsCommand, UpdateSubscriptionSettingsCommand } from '@localzet/aura-contract';
 
 import {
     GetSubscriptionSettingsResponseDto,

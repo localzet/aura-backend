@@ -1,6 +1,6 @@
 import { Users } from '@prisma/client';
 
-import { TResetPeriods, TUsersStatus } from '@localzet/aura-contract/constants';
+import { TResetPeriods, TUsersStatus } from '@localzet/aura-contract';
 
 export class UserEntity implements Users {
     public uuid: string;

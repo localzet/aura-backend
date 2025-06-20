@@ -8,7 +8,7 @@ import { QueryBus } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { EVENTS, TUserEvents } from '@localzet/aura-contract/constants';
+import { EVENTS, TUserEvents } from '@localzet/aura-contract';
 
 import { UserEvent } from '@integration-modules/notifications/interfaces';
 

@@ -7,9 +7,9 @@ import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetBandwidthStatsCommand, GetNodesStatisticsCommand, GetStatsCommand } from '@localzet/aura-contract/commands';
-import { SYSTEM_CONTROLLER } from '@localzet/aura-contract/api';
-import { ROLE } from '@localzet/aura-contract/constants';
+import { GetBandwidthStatsCommand, GetNodesStatisticsCommand, GetStatsCommand } from '@localzet/aura-contract';
+import { SYSTEM_CONTROLLER } from '@localzet/aura-contract';
+import { ROLE } from '@localzet/aura-contract';
 
 import {
     GetBandwidthStatsRequestQueryDto,

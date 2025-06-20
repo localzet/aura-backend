@@ -1,5 +1,5 @@
 import { XRayConfig } from '@common/helpers/xray-config/xray-config.validator';
-import { TSubscriptionTemplateType } from '@localzet/aura-contract/constants';
+import { TSubscriptionTemplateType } from '@localzet/aura-contract';
 
 import { UserWithActiveInboundsEntity } from '@modules/users/entities/user-with-active-inbounds.entity';
 import { HostWithInboundTagEntity } from '@modules/hosts/entities/host-with-inbound-tag.entity';

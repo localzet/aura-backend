@@ -13,7 +13,7 @@ import { WorkerRoutesGuard } from '@common/guards/worker-routes/worker-routes.gu
 import { customLogFilter } from '@common/utils/filter-logs/filter-logs';
 import { isDevelopment } from '@common/utils/startup-app';
 import { AxiosService } from '@common/axios';
-import { BULLBOARD_ROOT, METRICS_ROOT } from '@localzet/aura-contract/api';
+import { BULLBOARD_ROOT, METRICS_ROOT } from '@localzet/aura-contract';
 
 import { SchedulerRootModule } from './scheduler.root.module';
 

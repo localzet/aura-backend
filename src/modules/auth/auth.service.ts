@@ -9,8 +9,8 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@localzet/aura-contract/constants/errors';
-import { EVENTS, ROLE } from '@localzet/aura-contract/constants';
+import { ERRORS } from '@localzet/aura-contract';
+import { EVENTS, ROLE } from '@localzet/aura-contract';
 
 import { ServiceEvent } from '@integration-modules/notifications/interfaces';
 

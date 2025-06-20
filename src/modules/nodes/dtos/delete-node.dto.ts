@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { DeleteNodeCommand } from '@localzet/aura-contract/commands';
+import { DeleteNodeCommand } from '@localzet/aura-contract';
 
 export class DeleteNodeRequestParamDto extends createZodDto(DeleteNodeCommand.RequestSchema) {
 }

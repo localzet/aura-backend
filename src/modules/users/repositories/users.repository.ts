@@ -2,14 +2,14 @@ import { Prisma } from '@prisma/client';
 import utc from 'dayjs/plugin/utc';
 import dayjs from 'dayjs';
 
-import { TResetPeriods, TUsersStatus, USERS_STATUS } from '@localzet/aura-contract/constants';
+import { TResetPeriods, TUsersStatus, USERS_STATUS } from '@localzet/aura-contract';
 
 import { TransactionalAdapterPrisma } from '@nestjs-cls/transactional-adapter-prisma';
 import { TransactionHost } from '@nestjs-cls/transactional';
 import { Injectable } from '@nestjs/common';
 
 import { ICrud } from '@common/types/crud-port';
-import { GetAllUsersCommand } from '@localzet/aura-contract/commands';
+import { GetAllUsersCommand } from '@localzet/aura-contract';
 
 import { InboundsEntity } from '@modules/inbounds/entities';
 

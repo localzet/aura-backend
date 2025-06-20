@@ -7,9 +7,9 @@ import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetNodesUsageByRangeCommand } from '@localzet/aura-contract/commands';
-import { NODES_CONTROLLER } from '@localzet/aura-contract/api';
-import { ROLE } from '@localzet/aura-contract/constants';
+import { GetNodesUsageByRangeCommand } from '@localzet/aura-contract';
+import { NODES_CONTROLLER } from '@localzet/aura-contract';
+import { ROLE } from '@localzet/aura-contract';
 
 import { GetNodesUsageByRangeRequestQueryDto, GetNodesUsageByRangeResponseDto } from './dtos';
 import { NodesUsageHistoryService } from './nodes-usage-history.service';

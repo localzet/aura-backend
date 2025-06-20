@@ -1,4 +1,4 @@
-import { TResetPeriods, TUsersStatus } from '@localzet/aura-contract/constants';
+import { TResetPeriods, TUsersStatus } from '@localzet/aura-contract';
 
 export class GetUsersByTrafficStrategyAndStatusQuery {
     constructor(

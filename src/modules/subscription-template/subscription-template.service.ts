@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { TSubscriptionTemplateType } from '@localzet/aura-contract/constants';
+import { TSubscriptionTemplateType } from '@localzet/aura-contract';
 
 import { UpdateSubscriptionTemplateResponseModel } from './models/update-subscription.response.model';
 import { SubscriptionTemplateRepository } from './repositories/subscription-template.repository';

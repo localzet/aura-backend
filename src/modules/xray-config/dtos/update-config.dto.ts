@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { UpdateXrayConfigCommand } from '@localzet/aura-contract/commands';
+import { UpdateXrayConfigCommand } from '@localzet/aura-contract';
 
 export class UpdateConfigRequestDto extends createZodDto(UpdateXrayConfigCommand.RequestSchema) {
 }

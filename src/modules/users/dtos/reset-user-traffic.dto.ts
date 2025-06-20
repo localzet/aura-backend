@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { ResetUserTrafficCommand } from '@localzet/aura-contract/commands';
+import { ResetUserTrafficCommand } from '@localzet/aura-contract';
 
 export class ResetUserTrafficRequestDto extends createZodDto(
     ResetUserTrafficCommand.RequestSchema,

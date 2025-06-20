@@ -6,8 +6,8 @@ import { UserAgent } from '@common/decorators/get-useragent/get-useragent';
 import { errorHandler } from '@common/helpers/error-handler.helper';
 import { IpAddress } from '@common/decorators/get-ip/get-ip';
 import { Endpoint } from '@common/decorators/base-endpoint';
-import { GetStatusCommand, LoginCommand, RegisterCommand, TelegramCallbackCommand } from '@localzet/aura-contract/commands';
-import { AUTH_CONTROLLER } from '@localzet/aura-contract/api/controllers/auth';
+import { GetStatusCommand, LoginCommand, RegisterCommand, TelegramCallbackCommand } from '@localzet/aura-contract';
+import { AUTH_CONTROLLER } from '@localzet/aura-contract';
 
 import {
     GetStatusResponseDto,

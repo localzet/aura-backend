@@ -5,7 +5,7 @@ import {
     AddInboundToUsersCommand,
     RemoveInboundFromNodesCommand,
     RemoveInboundFromUsersCommand,
-} from '@localzet/aura-contract/commands';
+} from '@localzet/aura-contract';
 
 export class AddInboundToUsersRequestDto extends createZodDto(
     AddInboundToUsersCommand.RequestSchema,

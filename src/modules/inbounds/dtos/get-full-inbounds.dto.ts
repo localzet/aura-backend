@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { GetFullInboundsCommand } from '@localzet/aura-contract/commands';
+import { GetFullInboundsCommand } from '@localzet/aura-contract';
 
 export class GetFullInboundsResponseDto extends createZodDto(
     GetFullInboundsCommand.ResponseSchema,

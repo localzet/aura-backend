@@ -1,4 +1,4 @@
-import { TNodeEvents } from '@localzet/aura-contract/constants';
+import { TNodeEvents } from '@localzet/aura-contract';
 
 import { NodesEntity } from '@modules/nodes/entities/nodes.entity';
 

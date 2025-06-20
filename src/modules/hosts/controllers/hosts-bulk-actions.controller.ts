@@ -13,9 +13,9 @@ import {
     BulkEnableHostsCommand,
     SetInboundToManyHostsCommand,
     SetPortToManyHostsCommand,
-} from '@localzet/aura-contract/commands';
-import { HOSTS_CONTROLLER } from '@localzet/aura-contract/api/controllers';
-import { ROLE } from '@localzet/aura-contract/constants';
+} from '@localzet/aura-contract';
+import { HOSTS_CONTROLLER } from '@localzet/aura-contract';
+import { ROLE } from '@localzet/aura-contract';
 
 import {
     BulkDeleteHostsRequestDto,

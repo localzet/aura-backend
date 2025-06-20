@@ -1,7 +1,7 @@
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
-import { RemoveUserCommand as RemoveUserFromNodeCommandSdk } from '@localzet/aura-contract/build/commands';
+import { RemoveUserCommand as RemoveUserFromNodeCommandSdk } from '@localzet/aura-contract';
 
 import { NodeUsersQueueService } from '@queue/node-users/node-users.service';
 

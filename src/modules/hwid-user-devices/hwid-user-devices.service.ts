@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { QueryBus } from '@nestjs/cqrs';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@localzet/aura-contract/constants';
+import { ERRORS } from '@localzet/aura-contract';
 
 import { GetUserByUuidQuery } from '@modules/users/queries/get-user-by-uuid';
 import { UserWithActiveInboundsEntity } from '@modules/users/entities';

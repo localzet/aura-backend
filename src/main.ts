@@ -8,7 +8,7 @@ import { json } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import { API_ROOT } from '@localzet/aura-contract/api';
+import { API_ROOT } from '@localzet/aura-contract';
 
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';

@@ -1,4 +1,4 @@
-import { TUsersStatus } from '@localzet/aura-contract/constants';
+import { TUsersStatus } from '@localzet/aura-contract';
 
 export interface IUserOnlineStats {
     lastDay: number;

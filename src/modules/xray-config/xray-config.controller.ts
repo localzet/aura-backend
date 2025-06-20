@@ -1,5 +1,5 @@
-import { ERRORS, ROLE } from '@localzet/aura-contract/constants';
-import { XRAY_CONTROLLER } from '@localzet/aura-contract/api';
+import { ERRORS, ROLE } from '@localzet/aura-contract';
+import { XRAY_CONTROLLER } from '@localzet/aura-contract';
 
 import { ApiBadRequestResponse, ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { Body, Controller, HttpStatus, UseFilters, UseGuards } from '@nestjs/common';
@@ -10,7 +10,7 @@ import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetXrayConfigCommand, UpdateXrayConfigCommand } from '@localzet/aura-contract/commands';
+import { GetXrayConfigCommand, UpdateXrayConfigCommand } from '@localzet/aura-contract';
 
 import { UpdateConfigRequestDto, UpdateConfigResponseDto } from './dtos/update-config.dto';
 import { GetConfigResponseModel } from './models/get-config.response.model';

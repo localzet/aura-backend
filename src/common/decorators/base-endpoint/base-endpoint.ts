@@ -2,7 +2,7 @@
 import { All, applyDecorators, Delete, Get, HttpCode, Patch, Post, Put, Type } from '@nestjs/common';
 import { ApiBody, ApiOperation } from '@nestjs/swagger';
 
-import { EndpointDetails } from '@localzet/aura-contract/constants';
+import { EndpointDetails } from '@localzet/aura-contract';
 
 interface ApiEndpointOptions {
     command: { endpointDetails: EndpointDetails };

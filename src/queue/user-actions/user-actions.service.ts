@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bullmq';
 
-import { TUsersStatus } from '@localzet/aura-contract/constants';
+import { TUsersStatus } from '@localzet/aura-contract';
 
 import { AbstractQueueService } from '../queue.service';
 import { UserActionsJobNames } from './enums';

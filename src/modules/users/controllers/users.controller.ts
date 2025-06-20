@@ -34,9 +34,9 @@ import {
     ResetUserTrafficCommand,
     RevokeUserSubscriptionCommand,
     UpdateUserCommand,
-} from '@localzet/aura-contract/commands';
-import { USERS_CONTROLLER } from '@localzet/aura-contract/api';
-import { ROLE } from '@localzet/aura-contract/constants';
+} from '@localzet/aura-contract';
+import { USERS_CONTROLLER } from '@localzet/aura-contract';
+import { ROLE } from '@localzet/aura-contract';
 
 import {
     ActivateAllInboundsRequestDto,

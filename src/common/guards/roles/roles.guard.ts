@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 
 import { HttpExceptionWithErrorCodeType } from '@common/exception/http-exeception-with-error-code.type';
-import { ERRORS, ROLE, TRole } from '@localzet/aura-contract/constants';
+import { ERRORS, ROLE, TRole } from '@localzet/aura-contract';
 
 @Injectable()
 export class RolesGuard implements CanActivate {

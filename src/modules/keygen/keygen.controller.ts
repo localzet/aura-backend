@@ -7,9 +7,9 @@ import { Endpoint } from '@common/decorators/base-endpoint';
 import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetPubKeyCommand } from '@localzet/aura-contract/commands';
-import { KEYGEN_CONTROLLER } from '@localzet/aura-contract/api';
-import { ROLE } from '@localzet/aura-contract/constants';
+import { GetPubKeyCommand } from '@localzet/aura-contract';
+import { KEYGEN_CONTROLLER } from '@localzet/aura-contract';
+import { ROLE } from '@localzet/aura-contract';
 
 import { KeygenService } from './keygen.service';
 import { GetPubKeyResponseDto } from './dtos';

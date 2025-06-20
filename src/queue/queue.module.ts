@@ -7,7 +7,7 @@ import { BullModule } from '@nestjs/bullmq';
 
 import { BasicAuthMiddleware } from '@common/middlewares';
 import { useBullBoard } from '@common/utils/startup-app';
-import { BULLBOARD_ROOT } from '@localzet/aura-contract/api';
+import { BULLBOARD_ROOT } from '@localzet/aura-contract';
 
 import { ExpireUserNotificationsQueueModule } from './expire-user-notifications/expire-user-notifications.module';
 import { FirstConnectedUsersQueueModule } from './first-connected-users/first-connected-users.module';

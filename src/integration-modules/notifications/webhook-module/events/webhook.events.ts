@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { Injectable, Logger } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
 
-import { EVENTS } from '@localzet/aura-contract/constants';
+import { EVENTS } from '@localzet/aura-contract';
 
 import { CustomErrorEvent, NodeEvent, ServiceEvent, UserEvent } from '@integration-modules/notifications/interfaces';
 

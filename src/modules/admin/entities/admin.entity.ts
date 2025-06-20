@@ -1,6 +1,6 @@
 import { Admin } from '@prisma/client';
 
-import { TRoleTypes } from '@localzet/aura-contract/constants';
+import { TRoleTypes } from '@localzet/aura-contract';
 
 export class AdminEntity implements Admin {
     public uuid: string;

@@ -6,7 +6,7 @@ import { OnEvent } from '@nestjs/event-emitter';
 import { ConfigService } from '@nestjs/config';
 
 import { prettyBytesUtil } from '@common/utils/bytes';
-import { EVENTS } from '@localzet/aura-contract/constants';
+import { EVENTS } from '@localzet/aura-contract';
 
 import { UserEvent } from '@integration-modules/notifications/interfaces';
 

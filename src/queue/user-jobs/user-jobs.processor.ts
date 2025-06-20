@@ -8,7 +8,7 @@ import { ConfigService } from '@nestjs/config';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { EVENTS } from '@localzet/aura-contract/constants/events/events';
+import { EVENTS } from '@localzet/aura-contract';
 
 import { UserEvent } from '@integration-modules/notifications/interfaces';
 

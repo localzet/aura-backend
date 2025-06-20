@@ -4,7 +4,7 @@ import { Transactional } from '@nestjs-cls/transactional';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@localzet/aura-contract/constants';
+import { ERRORS } from '@localzet/aura-contract';
 
 import { IncrementUsedTrafficCommand } from './increment-used-traffic.command';
 import { UsersRepository } from '../../repositories/users.repository';

@@ -8,8 +8,8 @@ import { Logger, Scope } from '@nestjs/common';
 
 import { formatExecutionTime, getTime } from '@common/utils/get-elapsed-time';
 import { ICommandResponse } from '@common/types/command-response.type';
-import { RESET_PERIODS, TResetPeriods } from '@localzet/aura-contract/constants';
-import { EVENTS } from '@localzet/aura-contract/constants/events/events';
+import { RESET_PERIODS, TResetPeriods } from '@localzet/aura-contract';
+import { EVENTS } from '@localzet/aura-contract';
 
 import { UserEvent } from '@integration-modules/notifications/interfaces';
 

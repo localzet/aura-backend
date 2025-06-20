@@ -3,7 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { encodeCertPayload } from '@common/utils/certs/encode-node-payload';
 import { ICommandResponse } from '@common/types/command-response.type';
 import { generateNodeCert } from '@common/utils';
-import { ERRORS } from '@localzet/aura-contract/constants/errors';
+import { ERRORS } from '@localzet/aura-contract';
 
 import { KeygenRepository } from './repositories/keygen.repository';
 import { KeygenEntity } from './entities/keygen.entity';

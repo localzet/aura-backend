@@ -9,7 +9,7 @@ import { GetSystemStatsCommand } from '@localzet/aura-contract';
 
 import { ICommandResponse } from '@common/types/command-response.type';
 import { AxiosService } from '@common/axios';
-import { EVENTS } from '@localzet/aura-contract/constants';
+import { EVENTS } from '@localzet/aura-contract';
 
 import { NodeEvent } from '@integration-modules/notifications/interfaces';
 

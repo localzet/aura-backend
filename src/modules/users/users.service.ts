@@ -12,8 +12,8 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS, EVENTS, USERS_STATUS } from '@localzet/aura-contract/constants';
-import { GetAllUsersCommand } from '@localzet/aura-contract/commands';
+import { ERRORS, EVENTS, USERS_STATUS } from '@localzet/aura-contract';
+import { GetAllUsersCommand } from '@localzet/aura-contract';
 
 import { UserEvent } from '@integration-modules/notifications/interfaces';
 
