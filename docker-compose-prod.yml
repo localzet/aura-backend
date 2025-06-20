@@ -6,8 +6,6 @@ services:
     restart: always
     # command: postgres -c 'max_connections=5000'
     # shm_size: 8gb
-    # env_file:
-    #   - .env
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -15,25 +13,25 @@ services:
       - TZ=UTC
     ports:
       - '5432:5432'
-    # networks:
-    #   - aura-network
+    networks:
+      - aura-network
     volumes:
       - aura-db-data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      test: [ 'CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}' ]
       interval: 3s
       timeout: 10s
       retries: 3
 
   aura-redis:
-    image: valkey/valkey:8.0.2-alpine
+    image: valkey/valkey:8.0.2
     container_name: aura-redis
     hostname: aura-redis
     restart: always
     ports:
       - '6379:6379'
-    # networks:
-    #   - aura-network
+    networks:
+      - aura-network
     volumes:
       - aura-redis-data:/data
     healthcheck:
@@ -47,23 +45,21 @@ services:
     container_name: aura-backend
     hostname: aura-backend
     restart: always
-    # env_file:
-    #   - .env
     ports:
       - '3000:3000'
-    # networks:
-    #   - aura-network
+    networks:
+      - aura-network
     depends_on:
       aura-db:
         condition: service_healthy
       aura-redis:
         condition: service_healthy
 
-#networks:
-#  aura-network:
-#    name: aura-network
-#    driver: bridge
-#    external: true
+networks:
+  aura-network:
+    name: aura-network
+    driver: bridge
+    external: true
 
 volumes:
   aura-db-data:

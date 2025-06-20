@@ -29,7 +29,7 @@ services:
         max-file: '10'
 
   aura-redis:
-    image: valkey/valkey:8.0.2-alpine
+    image: valkey/valkey:8.0.2
     container_name: aura-redis
     hostname: aura-redis
     restart: always
