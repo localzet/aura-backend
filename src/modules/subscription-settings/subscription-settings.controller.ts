@@ -10,7 +10,7 @@ import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetSubscriptionSettingsCommand, UpdateSubscriptionSettingsCommand } from '@libs/contracts/commands';
+import { GetSubscriptionSettingsCommand, UpdateSubscriptionSettingsCommand } from '@localzet/aura-contract/commands';
 
 import {
     GetSubscriptionSettingsResponseDto,

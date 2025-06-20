@@ -17,9 +17,9 @@ import {
     BulkRevokeUsersSubscriptionCommand,
     BulkUpdateUsersCommand,
     BulkUpdateUsersInboundsCommand,
-} from '@libs/contracts/commands';
-import { USERS_CONTROLLER } from '@libs/contracts/api';
-import { ROLE } from '@libs/contracts/constants';
+} from '@localzet/aura-contract/commands';
+import { USERS_CONTROLLER } from '@localzet/aura-contract/api';
+import { ROLE } from '@localzet/aura-contract/constants';
 
 import {
     BulkAllResetTrafficUsersResponseDto,

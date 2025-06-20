@@ -16,7 +16,7 @@ import {
 import { TemplateEngine } from '@common/utils/templates/replace-templates-values';
 import { XRayConfig } from '@common/helpers/xray-config/xray-config.validator';
 import { ICommandResponse } from '@common/types/command-response.type';
-import { SECURITY_LAYERS, USERS_STATUS } from '@libs/contracts/constants';
+import { SECURITY_LAYERS, USERS_STATUS } from '@localzet/aura-contract/constants';
 
 import { SubscriptionSettingsEntity } from '@modules/subscription-settings/entities/subscription-settings.entity';
 import { GetSubscriptionSettingsQuery } from '@modules/subscription-settings/queries/get-subscription-settings';

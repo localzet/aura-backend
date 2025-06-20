@@ -1,4 +1,4 @@
-import { TResetPeriods, TUsersStatus } from '@libs/contracts/constants';
+import { TResetPeriods, TUsersStatus } from '@localzet/aura-contract/constants';
 
 import { ILastConnectedNode } from '@modules/nodes-user-usage-history/interfaces/last-connected-node';
 import { InboundsEntity } from '@modules/inbounds/entities';

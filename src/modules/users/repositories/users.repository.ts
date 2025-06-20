@@ -9,7 +9,7 @@ import { TransactionHost } from '@nestjs-cls/transactional';
 import { Injectable } from '@nestjs/common';
 
 import { ICrud } from '@common/types/crud-port';
-import { GetAllUsersCommand } from '@libs/contracts/commands';
+import { GetAllUsersCommand } from '@localzet/aura-contract/commands';
 
 import { InboundsEntity } from '@modules/inbounds/entities';
 

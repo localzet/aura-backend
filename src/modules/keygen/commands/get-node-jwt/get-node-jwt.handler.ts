@@ -6,7 +6,7 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS, ROLE } from '@libs/contracts/constants';
+import { ERRORS, ROLE } from '@localzet/aura-contract/constants';
 
 import { GetNodeJwtCommand } from './get-node-jwt.command';
 import { KeygenService } from '../../keygen.service';

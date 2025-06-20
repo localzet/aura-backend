@@ -1,4 +1,4 @@
-import { TErrorsEvents } from '@libs/contracts/constants';
+import { TErrorsEvents } from '@localzet/aura-contract/constants';
 
 export interface IErrorEvent {
     description: string;

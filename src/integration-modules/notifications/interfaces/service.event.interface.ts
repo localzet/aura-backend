@@ -1,4 +1,4 @@
-import { TServiceEvents } from '@libs/contracts/constants';
+import { TServiceEvents } from '@localzet/aura-contract/constants';
 
 export interface IServiceEvent {
     loginAttempt?: {

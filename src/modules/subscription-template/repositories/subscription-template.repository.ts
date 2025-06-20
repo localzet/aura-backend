@@ -5,7 +5,7 @@ import { TransactionHost } from '@nestjs-cls/transactional';
 import { Injectable } from '@nestjs/common';
 
 import { ICrud } from '@common/types/crud-port';
-import { TSubscriptionTemplateType } from '@libs/contracts/constants';
+import { TSubscriptionTemplateType } from '@localzet/aura-contract/constants';
 
 import { SubscriptionTemplateEntity } from '../entities/subscription-template.entity';
 import { SubscriptionTemplateConverter } from '../subscription-template.converter';

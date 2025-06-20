@@ -10,7 +10,7 @@ import { errorHandler } from '@common/helpers/error-handler.helper';
 import { Endpoint } from '@common/decorators/base-endpoint';
 import { Roles } from '@common/decorators/roles/roles';
 import { RolesGuard } from '@common/guards/roles';
-import { GetXrayConfigCommand, UpdateXrayConfigCommand } from '@libs/contracts/commands';
+import { GetXrayConfigCommand, UpdateXrayConfigCommand } from '@localzet/aura-contract/commands';
 
 import { UpdateConfigRequestDto, UpdateConfigResponseDto } from './dtos/update-config.dto';
 import { GetConfigResponseModel } from './models/get-config.response.model';

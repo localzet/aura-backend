@@ -12,9 +12,9 @@ import {
     AddInboundToUsersCommand,
     RemoveInboundFromNodesCommand,
     RemoveInboundFromUsersCommand,
-} from '@libs/contracts/commands';
-import { INBOUNDS_CONTROLLER } from '@libs/contracts/api';
-import { ROLE } from '@libs/contracts/constants';
+} from '@localzet/aura-contract/commands';
+import { INBOUNDS_CONTROLLER } from '@localzet/aura-contract/api';
+import { ROLE } from '@localzet/aura-contract/constants';
 
 import {
     AddInboundToNodesRequestDto,

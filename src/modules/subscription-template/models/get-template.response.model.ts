@@ -1,4 +1,4 @@
-import { TSubscriptionTemplateType } from '@libs/contracts/constants';
+import { TSubscriptionTemplateType } from '@localzet/aura-contract/constants';
 
 export class GetTemplateResponseModel {
     public uuid: string;

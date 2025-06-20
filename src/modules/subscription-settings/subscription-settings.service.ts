@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@libs/contracts/constants';
+import { ERRORS } from '@localzet/aura-contract/constants';
 
 import { SubscriptionSettingsRepository } from './repositories/subscription-settings.repository';
 import { SubscriptionSettingsEntity } from './entities/subscription-settings.entity';

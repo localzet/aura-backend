@@ -1,7 +1,7 @@
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 
-import { EVENTS } from '@libs/contracts/constants';
+import { EVENTS } from '@localzet/aura-contract/constants';
 
 import { ServiceEvent } from '@integration-modules/notifications/interfaces';
 

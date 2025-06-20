@@ -1,4 +1,4 @@
-import { TUserEvents } from '@libs/contracts/constants';
+import { TUserEvents } from '@localzet/aura-contract/constants';
 
 import { UserWithActiveInboundsEntity } from '@modules/users/entities/user-with-active-inbounds.entity';
 

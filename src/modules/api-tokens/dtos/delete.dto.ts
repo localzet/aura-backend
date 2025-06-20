@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { DeleteApiTokenCommand } from '@libs/contracts/commands';
+import { DeleteApiTokenCommand } from '@localzet/aura-contract/commands';
 
 export class DeleteApiTokenRequestDto extends createZodDto(DeleteApiTokenCommand.RequestSchema) {
 }

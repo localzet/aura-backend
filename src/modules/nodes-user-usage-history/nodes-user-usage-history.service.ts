@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { Injectable, Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@libs/contracts/constants';
+import { ERRORS } from '@localzet/aura-contract/constants';
 
 import { NodesUserUsageHistoryRepository } from './repositories/nodes-user-usage-history.repository';
 import { IGetNodesRealtimeUsage, IGetNodeUserUsageByRange } from './interfaces';

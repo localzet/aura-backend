@@ -5,7 +5,7 @@ import { Bot, Context } from 'grammy';
 import { OnEvent } from '@nestjs/event-emitter';
 import { ConfigService } from '@nestjs/config';
 
-import { EVENTS } from '@libs/contracts/constants';
+import { EVENTS } from '@localzet/aura-contract/constants';
 
 import { CustomErrorEvent, ServiceEvent } from '@integration-modules/notifications/interfaces';
 import { BOT_NAME } from '@integration-modules/notifications/telegram-bot/constants';

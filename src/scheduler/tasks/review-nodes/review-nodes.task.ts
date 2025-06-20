@@ -4,7 +4,7 @@ import { Cron } from '@nestjs/schedule';
 import { QueryBus } from '@nestjs/cqrs';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { EVENTS } from '@libs/contracts/constants/events/events';
+import { EVENTS } from '@localzet/aura-contract/constants/events/events';
 
 import { NodeEvent } from '@integration-modules/notifications/interfaces';
 

@@ -3,7 +3,7 @@ import { Transactional } from '@nestjs-cls/transactional';
 import { Logger } from '@nestjs/common';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@libs/contracts/constants';
+import { ERRORS } from '@localzet/aura-contract/constants';
 
 import { InboundsRepository } from '../../repositories/inbounds.repository';
 import { InboundsEntity } from '../../entities/inbounds.entity';

@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 
-import { USERS_STATUS } from '@libs/contracts/constants';
+import { USERS_STATUS } from '@localzet/aura-contract/constants';
 
 import { InboundsEntity } from '@modules/inbounds/entities';
 

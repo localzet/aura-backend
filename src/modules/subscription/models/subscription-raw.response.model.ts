@@ -1,4 +1,4 @@
-import { TResetPeriods, TUsersStatus } from '@libs/contracts/constants';
+import { TResetPeriods, TUsersStatus } from '@localzet/aura-contract/constants';
 
 export class SubscriptionRawResponse {
     public isFound: boolean;

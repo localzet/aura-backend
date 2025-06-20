@@ -2,7 +2,7 @@ import { generateJwtKeypair, generateMasterCerts } from '@common/utils/certs/gen
 import {
     SUBSCRIPTION_TEMPLATE_TYPE,
     SUBSCRIPTION_TEMPLATE_TYPE_VALUES,
-} from '@libs/contracts/constants';
+} from '@localzet/aura-contract/constants';
 import { KeygenEntity } from '@modules/keygen/entities/keygen.entity';
 import { PrismaClient } from '@prisma/client';
 import consola from 'consola';

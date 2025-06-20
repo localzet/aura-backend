@@ -11,9 +11,9 @@ import {
     CreateUserHwidDeviceCommand,
     DeleteUserHwidDeviceCommand,
     GetUserHwidDevicesCommand,
-} from '@libs/contracts/commands';
-import { HWID_CONTROLLER } from '@libs/contracts/api';
-import { ROLE } from '@libs/contracts/constants';
+} from '@localzet/aura-contract/commands';
+import { HWID_CONTROLLER } from '@localzet/aura-contract/api';
+import { ROLE } from '@localzet/aura-contract/constants';
 
 import {
     CreateUserHwidDeviceRequestDto,

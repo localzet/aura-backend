@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { UpdateSubscriptionTemplateCommand } from '@libs/contracts/commands';
+import { UpdateSubscriptionTemplateCommand } from '@localzet/aura-contract/commands';
 
 export class UpdateTemplateRequestDto extends createZodDto(
     UpdateSubscriptionTemplateCommand.RequestSchema,

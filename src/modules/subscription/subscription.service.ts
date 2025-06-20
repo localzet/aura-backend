@@ -19,7 +19,7 @@ import {
     TRequestTemplateTypeKeys,
     TSubscriptionTemplateType,
     USERS_STATUS,
-} from '@libs/contracts/constants';
+} from '@localzet/aura-contract/constants';
 
 import { SubscriptionSettingsEntity } from '@modules/subscription-settings/entities/subscription-settings.entity';
 import { GetSubscriptionSettingsQuery } from '@modules/subscription-settings/queries/get-subscription-settings';

@@ -1,6 +1,6 @@
 import { SubscriptionTemplate } from '@prisma/client';
 
-import { TSubscriptionTemplateType } from '@libs/contracts/constants';
+import { TSubscriptionTemplateType } from '@localzet/aura-contract/constants';
 
 export class SubscriptionTemplateEntity implements SubscriptionTemplate {
     uuid: string;

@@ -4,7 +4,7 @@ import { Response } from 'express';
 import { ApiBasicAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Controller, Get, Res, UseGuards } from '@nestjs/common';
 
-import { METRICS_ROOT } from '@libs/contracts/api';
+import { METRICS_ROOT } from '@localzet/aura-contract/api';
 
 import { BasicAuthGuard } from './guards/basic-auth.guard';
 

@@ -6,7 +6,7 @@ import { ConfigService } from '@nestjs/config';
 import { CommandBus } from '@nestjs/cqrs';
 
 import { ICommandResponse } from '@common/types/command-response.type';
-import { ERRORS } from '@libs/contracts/constants';
+import { ERRORS } from '@localzet/aura-contract/constants';
 
 import { SignApiTokenCommand } from '../auth/commands/sign-api-token/sign-api-token.command';
 import { IApiTokenDeleteResponse, ICreateApiTokenRequest } from './interfaces';

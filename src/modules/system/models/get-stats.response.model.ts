@@ -1,4 +1,4 @@
-import { TUsersStatus } from '@libs/contracts/constants';
+import { TUsersStatus } from '@localzet/aura-contract/constants';
 
 interface IGetStatsResponseData {
     cpu: {
