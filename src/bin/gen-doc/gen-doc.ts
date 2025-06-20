@@ -21,7 +21,7 @@ import { patchNestJsSwagger, ZodValidationPipe } from 'nestjs-zod';
 import * as winston from 'winston';
 import { createLogger } from 'winston';
 
-import { ROOT } from '@localzet/aura-contract/api';
+import { API_ROOT } from '@localzet/aura-contract/api';
 
 import { NestFactory } from '@nestjs/core';
 
@@ -66,7 +66,7 @@ async function bootstrap(): Promise<void> {
 
     ghActionsDocs(app);
 
-    app.setGlobalPrefix(ROOT);
+    app.setGlobalPrefix(API_ROOT);
 
     app.useGlobalPipes(new ZodValidationPipe());
 

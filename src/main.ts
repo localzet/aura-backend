@@ -8,7 +8,7 @@ import { json } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import { ROOT } from '@localzet/aura-contract/api';
+import { API_ROOT } from '@localzet/aura-contract/api';
 
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
@@ -97,7 +97,7 @@ async function bootstrap(): Promise<void> {
                 morgan(
                     ':remote-addr - ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"',
                     // {
-                    //     skip: (req) => req.url === ROOT + METRICS_ROOT,
+                    //     skip: (req) => req.url === API_ROOT + METRICS_ROOT,
                     //     stream: {
                     //         write: (message) => logger.http(message.trim()),
                     //     },
@@ -119,7 +119,7 @@ async function bootstrap(): Promise<void> {
     //     );
     // }
 
-    app.setGlobalPrefix(ROOT);
+    app.setGlobalPrefix(API_ROOT);
 
     await getDocs(app, config);
 
