@@ -2,7 +2,7 @@ import { Prisma } from '@prisma/client';
 import utc from 'dayjs/plugin/utc';
 import dayjs from 'dayjs';
 
-import { TResetPeriods, TUsersStatus, USERS_STATUS } from '@localzet/aura-backend-contract/constants';
+import { TResetPeriods, TUsersStatus, USERS_STATUS } from '@localzet/aura-contract/constants';
 
 import { TransactionalAdapterPrisma } from '@nestjs-cls/transactional-adapter-prisma';
 import { TransactionHost } from '@nestjs-cls/transactional';

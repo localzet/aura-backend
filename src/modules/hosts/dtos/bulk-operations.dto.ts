@@ -6,7 +6,7 @@ import {
     BulkEnableHostsCommand,
     SetInboundToManyHostsCommand,
     SetPortToManyHostsCommand,
-} from '@localzet/aura-backend-contract/commands';
+} from '@localzet/aura-contract/commands';
 
 export class BulkDeleteHostsRequestDto extends createZodDto(BulkDeleteHostsCommand.RequestSchema) {
 }

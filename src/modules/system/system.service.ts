@@ -1,6 +1,6 @@
 import * as si from 'systeminformation';
 
-import { ERRORS } from '@localzet/aura-backend-contract/constants';
+import { ERRORS } from '@localzet/aura-contract/constants';
 
 import { Injectable, Logger } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';

@@ -8,7 +8,7 @@ import { QueryBus } from '@nestjs/cqrs';
 import { ICommandResponse } from '@common/types/command-response.type';
 import { IXrayConfig } from '@common/helpers/xray-config/interfaces';
 import { AxiosService } from '@common/axios/axios.service';
-import { EVENTS } from '@localzet/aura-backend-contract/constants';
+import { EVENTS } from '@localzet/aura-contract/constants';
 
 import { NodeEvent } from '@integration-modules/notifications/interfaces';
 

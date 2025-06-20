@@ -7,7 +7,7 @@ import { TransactionHost } from '@nestjs-cls/transactional';
 import { Injectable } from '@nestjs/common';
 
 import { ICrud } from '@common/types/crud-port';
-import { TSecurityLayers } from '@localzet/aura-backend-contract/constants';
+import { TSecurityLayers } from '@localzet/aura-contract/constants';
 
 import { HostWithInboundTagEntity } from '../entities/host-with-inbound-tag.entity';
 import { HostsEntity } from '../entities/hosts.entity';

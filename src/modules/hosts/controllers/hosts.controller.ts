@@ -21,9 +21,9 @@ import {
     GetOneHostCommand,
     ReorderHostCommand,
     UpdateHostCommand,
-} from '@localzet/aura-backend-contract/commands';
-import { HOSTS_CONTROLLER } from '@localzet/aura-backend-contract/api/controllers';
-import { ROLE } from '@localzet/aura-backend-contract/constants';
+} from '@localzet/aura-contract/commands';
+import { HOSTS_CONTROLLER } from '@localzet/aura-contract/api/controllers';
+import { ROLE } from '@localzet/aura-contract/constants';
 
 import { ReorderHostRequestDto, ReorderHostResponseDto } from '../dtos/reorder-hosts.dto';
 import { CreateHostRequestDto, CreateHostResponseDto } from '../dtos/create-host.dto';

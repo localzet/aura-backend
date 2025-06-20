@@ -1,7 +1,7 @@
 import { Prisma } from '@prisma/client';
 
 import { StartAllNodesQueueService } from 'src/queue/start-all-nodes/start-all-nodes.service';
-import { ERRORS, EVENTS } from '@localzet/aura-backend-contract/constants';
+import { ERRORS, EVENTS } from '@localzet/aura-contract/constants';
 
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { Injectable, Logger } from '@nestjs/common';

@@ -1,4 +1,4 @@
-import { TSecurityLayers } from '@localzet/aura-backend-contract/constants';
+import { TSecurityLayers } from '@localzet/aura-contract/constants';
 
 import { HostsEntity } from '../entities/hosts.entity';
 

@@ -21,7 +21,7 @@ import { patchNestJsSwagger, ZodValidationPipe } from 'nestjs-zod';
 import * as winston from 'winston';
 import { createLogger } from 'winston';
 
-import { ROOT } from '@localzet/aura-backend-contract/api';
+import { ROOT } from '@localzet/aura-contract/api';
 
 import { NestFactory } from '@nestjs/core';
 

@@ -1,4 +1,4 @@
-import { ERRORS } from '@localzet/aura-backend-contract/constants';
+import { ERRORS } from '@localzet/aura-contract/constants';
 
 import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';

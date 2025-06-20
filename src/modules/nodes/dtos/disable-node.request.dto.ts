@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { DisableNodeCommand } from '@localzet/aura-backend-contract/commands';
+import { DisableNodeCommand } from '@localzet/aura-contract/commands';
 
 export class DisableNodeRequestParamDto extends createZodDto(DisableNodeCommand.RequestSchema) {
 }

@@ -1,5 +1,5 @@
-import { ERRORS, ROLE } from '@localzet/aura-backend-contract/constants';
-import { XRAY_CONTROLLER } from '@localzet/aura-backend-contract/api';
+import { ERRORS, ROLE } from '@localzet/aura-contract/constants';
+import { XRAY_CONTROLLER } from '@localzet/aura-contract/api';
 
 import { ApiBadRequestResponse, ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { Body, Controller, HttpStatus, UseFilters, UseGuards } from '@nestjs/common';

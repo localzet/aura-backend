@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { RevokeUserSubscriptionCommand } from '@localzet/aura-backend-contract/commands';
+import { RevokeUserSubscriptionCommand } from '@localzet/aura-contract/commands';
 
 export class RevokeUserSubscriptionRequestDto extends createZodDto(
     RevokeUserSubscriptionCommand.RequestSchema,

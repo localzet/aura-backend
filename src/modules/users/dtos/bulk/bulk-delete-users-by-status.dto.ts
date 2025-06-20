@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { BulkDeleteUsersByStatusCommand } from '@localzet/aura-backend-contract/commands';
+import { BulkDeleteUsersByStatusCommand } from '@localzet/aura-contract/commands';
 
 export class BulkDeleteUsersByStatusRequestDto extends createZodDto(
     BulkDeleteUsersByStatusCommand.RequestSchema,

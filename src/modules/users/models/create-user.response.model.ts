@@ -1,5 +1,5 @@
 import { createHappCryptoLink } from '@common/utils';
-import { TResetPeriods, TUsersStatus } from '@localzet/aura-backend-contract/constants';
+import { TResetPeriods, TUsersStatus } from '@localzet/aura-contract/constants';
 
 import { ILastConnectedNode } from '@modules/nodes-user-usage-history/interfaces';
 

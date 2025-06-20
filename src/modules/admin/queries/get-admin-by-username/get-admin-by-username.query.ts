@@ -1,4 +1,4 @@
-import { TRoleTypes } from '@localzet/aura-backend-contract/constants';
+import { TRoleTypes } from '@localzet/aura-contract/constants';
 
 export class GetAdminByUsernameQuery {
     constructor(

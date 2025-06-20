@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 
-import { GetUserByUuidCommand } from '@localzet/aura-backend-contract/commands';
+import { GetUserByUuidCommand } from '@localzet/aura-contract/commands';
 
 export class GetUserByUuidRequestDto extends createZodDto(GetUserByUuidCommand.RequestSchema) {
 }
