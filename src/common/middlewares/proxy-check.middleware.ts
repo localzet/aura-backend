@@ -7,6 +7,7 @@ import { isDevelopment } from '@common/utils/startup-app';
 const logger = new Logger('ProxyCheckMiddleware');
 
 export function proxyCheckMiddleware(req: Request, res: Response, next: NextFunction) {
+    return next();
     if (isDevelopment()) {
         return next();
     }

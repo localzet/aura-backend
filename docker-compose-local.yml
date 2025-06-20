@@ -26,7 +26,7 @@ services:
       retries: 3
 
   aura-redis:
-    image: valkey/valkey:8.0.2-alpine
+    image: valkey/valkey:8.0.2
     container_name: aura-redis
     hostname: aura-redis
     restart: always
@@ -43,14 +43,15 @@ services:
       retries: 3
 
   aura-backend:
-    image: localzet/aura-backend:latest
+#    image: localzet/aura-backend:latest
+    build: .
     container_name: aura-backend
     hostname: aura-backend
     restart: always
     env_file:
      - .env
     ports:
-      - '3000:3000'
+      - '80:3000'
     # networks:
     #   - aura-network
     depends_on:
