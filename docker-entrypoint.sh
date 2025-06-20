@@ -1,9 +1,6 @@
 #!/bin/sh
-
 echo "Starting entrypoint script..."
-
 echo "Migrating database..."
-
 if ! npm run migrate:deploy; then
     echo "Database migration failed! Exiting container..."
     exit 1
