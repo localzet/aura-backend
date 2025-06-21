@@ -65,11 +65,11 @@ const bullBoard = [
                 },
                 miscLinks: [
                     {
-                        text: 'Return to dashboard',
+                        text: 'Панель управления',
                         url: '/dashboard',
                     },
                     {
-                        text: 'Aura',
+                        text: 'Документация',
                         url: 'https://aura.zorin.space',
                     },
                 ],
