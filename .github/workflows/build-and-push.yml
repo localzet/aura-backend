@@ -41,13 +41,13 @@ jobs:
           node-version: '22.x'
 
       - name: 🔧 Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: 🔧 Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: 🔧 Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -60,9 +60,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 📤 Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           context: .
+          file: Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
@@ -116,7 +117,7 @@ jobs:
           body: |
             🌊 Aura Backend ${{ github.ref_name }}
 
-            ${{ env.CHANGELOG }}
+            📝 Compare changes: ${{ env.CHANGELOG }}
 
             Latest Docker image:
             - `localzet/aura-backend:latest`
