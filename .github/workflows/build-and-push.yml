@@ -107,14 +107,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
-          name: v${{ github.ref_name }}
+          name: ${{ github.ref_name }}
           generate_release_notes: true
           append_body: true
           make_latest: true
           draft: false
           prerelease: false
           body: |
-            🌊 Aura Backend v${{ github.ref_name }}
+            🌊 Aura Backend ${{ github.ref_name }}
 
             ${{ env.CHANGELOG }}
 

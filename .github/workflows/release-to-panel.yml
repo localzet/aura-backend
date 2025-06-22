@@ -51,12 +51,12 @@ jobs:
       - name: Update release info and create tag
         id: commit
         run: |
-          echo "Backend: v${{ github.ref_name }}" > current-release.md
-          echo "Frontend: v${{ steps.frontend-tag.outputs.release }}" >> current-release.md
+          echo "Backend: ${{ github.ref_name }}" > current-release.md
+          echo "Frontend: ${{ steps.frontend-tag.outputs.release }}" >> current-release.md
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git add current-release.md
-          git commit -m "Release v${{ github.ref_name }}"
+          git commit -m "Release ${{ github.ref_name }}"
           git tag ${{ github.ref_name }}
           git push origin releases --tags
 
@@ -68,17 +68,17 @@ jobs:
           repository: localzet/aura-docs
           tag_name: ${{ github.ref_name }}
           target_commitish: ${{ steps.commit.outputs.sha }}
-          name: v${{ github.ref_name }}
+          name: ${{ github.ref_name }}
           generate_release_notes: false
           append_body: true
           make_latest: true
           body: |
-            # 🌊 Aura v${{ github.ref_name }}
+            # 🌊 Aura ${{ github.ref_name }}
 
             ---
 
-            ## 💻 Frontend v${{ steps.frontend-tag.outputs.release }}
-            [![GitHub Release](https://img.shields.io/badge/release-v${{ steps.frontend-tag.outputs.release }}-blue.svg)](https://github.com/localzet/aura-frontend/releases/tag/${{ steps.frontend-tag.outputs.release }})
+            ## 💻 Frontend ${{ steps.frontend-tag.outputs.release }}
+            [![GitHub Release](https://img.shields.io/badge/release-${{ steps.frontend-tag.outputs.release }}-blue.svg)](https://github.com/localzet/aura-frontend/releases/tag/${{ steps.frontend-tag.outputs.release }})
 
             ### 📋 Changes
             - [View full changelog](https://github.com/localzet/aura-frontend/releases/tag/${{ steps.frontend-tag.outputs.release }})
@@ -86,8 +86,8 @@ jobs:
 
             ---
 
-            ## 🖥️ Backend v${{ steps.backend-tag.outputs.latestTag }}
-            [![GitHub Release](https://img.shields.io/badge/release-v${{ steps.backend-tag.outputs.latestTag }}-blue.svg)](https://github.com/localzet/aura-backend/releases/tag/${{ steps.backend-tag.outputs.latestTag }})
+            ## 🖥️ Backend ${{ steps.backend-tag.outputs.latestTag }}
+            [![GitHub Release](https://img.shields.io/badge/release-${{ steps.backend-tag.outputs.latestTag }}-blue.svg)](https://github.com/localzet/aura-backend/releases/tag/${{ steps.backend-tag.outputs.latestTag }})
 
             ### 📋 Changes
             - [View full changelog](https://github.com/localzet/aura-backend/releases/tag/${{ steps.backend-tag.outputs.latestTag }})
