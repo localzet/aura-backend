@@ -2,7 +2,6 @@ services:
   aura-db:
     image: postgres:17
     container_name: aura-db
-    hostname: aura-db
     restart: always
     # command: postgres -c 'max_connections=5000'
     # shm_size: 8gb
@@ -26,7 +25,6 @@ services:
   aura-redis:
     image: valkey/valkey:8.0.2
     container_name: aura-redis
-    hostname: aura-redis
     restart: always
     ports:
       - '6379:6379'
@@ -43,7 +41,6 @@ services:
   aura-backend:
     image: localzet/aura-backend:latest
     container_name: aura-backend
-    hostname: aura-backend
     restart: always
     ports:
       - '3000:3000'
