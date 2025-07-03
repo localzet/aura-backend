@@ -34,7 +34,7 @@ export class RenderTemplatesService {
         const { userAgent, user, hosts, config, isOutlineConfig, encodedTag } = params;
 
         const configType =
-            params.needJsonSubscription // && this.isJsonSubscriptionAllowed(userAgent)
+            params.needJsonSubscription && this.isJsonSubscriptionAllowed(userAgent)
                 ? 'XRAY_JSON'
                 : this.parseUserAgentType(userAgent);
 
@@ -198,7 +198,7 @@ export class RenderTemplatesService {
             /^ktor-client/,
             /^V2Box/,
             /^io\.github\.saeeddev94\.xray\//,
-            /^v2raytun\//i,
+            /^v2raytun\/android/i,
         ];
 
         if (xrayJsonClients.some((regex) => regex.test(userAgent))) {

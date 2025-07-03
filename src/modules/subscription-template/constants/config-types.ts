@@ -19,7 +19,7 @@ export const SUBSCRIPTION_CONFIG_TYPES = {
     },
     SING_BOX: {
         NAME: 'SING_BOX',
-        REGEX: /^(SFA|SFI|SFM|SFT|[Kk]aring|Singbox|[Rr]abbit[Hh]ole)/,
+        REGEX: /^(SFA|SFI|SFM|SFT|[Kk]aring|Singbox|v2raytun|[Rr]abbit[Hh]ole)/,
         CONTENT_TYPE: 'application/json',
         BASE64: false,
     },
