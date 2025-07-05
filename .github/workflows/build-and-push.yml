@@ -1,4 +1,4 @@
-name: Build&Push Release Docker Image
+name: Build & Push Docker Image
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - '*'
 
 jobs:
-  send-start-deploy-telegram-message:
+  send-start-message:
     name: 📢 Send Telegram message
     runs-on: ubuntu-latest
     steps:
@@ -64,11 +64,15 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64, linux/arm64
           push: true
           tags: |
+            localzet/aura:latest
+            localzet/aura:${{github.ref_name}}
             localzet/aura-backend:latest
             localzet/aura-backend:${{github.ref_name}}
+            ghcr.io/localzet/aura:latest
+            ghcr.io/localzet/aura:${{github.ref_name}}
             ghcr.io/localzet/aura-backend:latest
             ghcr.io/localzet/aura-backend:${{github.ref_name}}
 
@@ -115,20 +119,19 @@ jobs:
           draft: false
           prerelease: false
           body: |
-            🌊 Aura Backend ${{ github.ref_name }}
+            # 🌊 Aura Backend ${{ github.ref_name }}
 
             📝 Compare changes: ${{ env.CHANGELOG }}
 
-            Latest Docker image:
+            ### Latest Docker image:
             - `localzet/aura-backend:latest`
             - `ghcr.io/localzet/aura-backend:latest`
 
-            Docker images:
+            ### Docker images:
             - `localzet/aura-backend:${{github.ref_name}}`
             - `ghcr.io/localzet/aura-backend:${{github.ref_name}}`
 
-
-  send-telegram-message:
+  send-success-message:
     name: 📢 Send Telegram message
     needs: [ build-docker-image, create-release ]
     runs-on: ubuntu-latest
@@ -148,7 +151,7 @@ jobs:
             Автор: ${{ github.event.head_commit.author.name }}
             Время: ${{ github.event.head_commit.timestamp }}
 
-  notify-on-error:
+  send-error-message:
     name: 📢 Send Telegram message
     runs-on: ubuntu-latest
     needs: [ build-docker-image ]

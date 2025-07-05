@@ -6,6 +6,24 @@ on:
     types: [published]
 
 jobs:
+  send-start-message:
+    name: 📢 Send Telegram message
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔧 Checkout source code
+        uses: actions/checkout@v4
+
+      - name: 📬 Send Telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            🏹 Начало деплоя пакета ${{ github.REPOSITORY }}
+            Коммит: ${{ github.event.head_commit.message }}
+            Автор: ${{ github.event.head_commit.author.name }}
+            Время: ${{ github.event.head_commit.timestamp }}
+
   create-release:
     runs-on: ubuntu-latest
     permissions:
@@ -21,7 +39,7 @@ jobs:
           excludes: prerelease, draft
 
       - name: Checkout main branch first
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: localzet/aura-docs
           ref: main
@@ -66,12 +84,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           repository: localzet/aura-docs
-          tag_name: ${{ github.ref_name }}
           target_commitish: ${{ steps.commit.outputs.sha }}
+          tag_name: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
-          generate_release_notes: false
+          generate_release_notes: true
           append_body: true
           make_latest: true
+          draft: false
+          prerelease: false
           body: |
             # 🌊 Aura ${{ github.ref_name }}
 
@@ -99,15 +119,50 @@ jobs:
 
             ### Latest:
             ```
-            localzet/aura-backend:latest
-            ghcr.io/localzet/aura-backend:latest
+            localzet/aura:latest
+            ghcr.io/localzet/aura:latest
             ```
 
             ### Versioned:
             ```
-            localzet/aura-backend:${{github.ref_name}}
-            ghcr.io/localzet/aura-backend:${{github.ref_name}}
+            localzet/aura:${{github.ref_name}}
+            ghcr.io/localzet/aura:${{github.ref_name}}
             ```
 
-          draft: false
-          prerelease: false
+
+  send-success-message:
+    name: 📢 Send Telegram message
+    needs: [ create-release ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔧 Checkout source code
+        uses: actions/checkout@v4
+
+      - name: 📬 Send Telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ✅ Пакет ${{ github.REPOSITORY }} успешно опубликован
+            Тег: *${{ github.sha }}*
+            Коммит: ${{ github.event.head_commit.message }}
+            Автор: ${{ github.event.head_commit.author.name }}
+            Время: ${{ github.event.head_commit.timestamp }}
+
+  send-error-message:
+    name: 📢 Send Telegram message
+    runs-on: ubuntu-latest
+    needs: [ create-release ]
+    if: failure()
+    steps:
+      - name: 🔧 Checkout source code
+        uses: actions/checkout@v4
+
+      - name: 🚨 Send error notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ❌ Ошибка в ${{ github.REPOSITORY }}: проблемы в сборке
