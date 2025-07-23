@@ -2,9 +2,9 @@ import xbytes from 'xbytes';
 
 export function prettyBytesUtil(
     bytesInput: bigint | number | string | undefined,
-    sticky: boolean = false,
+    sticky = false,
     prefixIndex?: number,
-    returnZero: boolean = false,
+    returnZero = false,
 ): string {
     if (!bytesInput) {
         return returnZero ? '0' : '0';

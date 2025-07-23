@@ -225,7 +225,7 @@ export class SubscriptionService {
         shortUuid: string,
         userAgent: string,
         isHtml: boolean,
-        isOutlineConfig: boolean = false,
+        isOutlineConfig = false,
         encodedTag?: string,
     ): Promise<
         SubscriptionNotFoundResponse | SubscriptionRawResponse | SubscriptionWithConfigResponse

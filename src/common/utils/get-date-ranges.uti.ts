@@ -37,7 +37,7 @@ export function getCalendarYearRanges(timezone: string): [[Date, Date], [Date, D
     ];
 }
 
-export function getDateRange(timezone: string, substractDays: number = 0): [Date, Date] {
+export function getDateRange(timezone: string, substractDays = 0): [Date, Date] {
     const now = dayjs().tz(timezone);
     const start = now.startOf('day').subtract(substractDays, 'day');
     const end = now.endOf('day').subtract(substractDays, 'day');

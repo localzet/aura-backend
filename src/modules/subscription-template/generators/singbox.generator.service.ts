@@ -218,8 +218,8 @@ export class SingBoxGeneratorService {
 
     private wsConfig(
         settings: Record<string, any> | undefined,
-        host: string = '',
-        path: string = '',
+        host = '',
+        path = '',
         max_early_data?: number,
         early_data_header_name?: string,
     ): TransportConfig {
@@ -248,8 +248,8 @@ export class SingBoxGeneratorService {
 
     private httpUpgradeConfig(
         settings: Record<string, any> | undefined,
-        host: string = '',
-        path: string = '',
+        host = '',
+        path = '',
     ): TransportConfig {
         const config = structuredClone(settings?.httpupgradeSettings || { headers: {} });
 
@@ -269,9 +269,9 @@ export class SingBoxGeneratorService {
 
     private transportConfig(
         settings: Record<string, any> | undefined,
-        transport_type: string = '',
-        host: string = '',
-        path: string = '',
+        transport_type = '',
+        host = '',
+        path = '',
         max_early_data?: number,
         early_data_header_name?: string,
     ): TransportConfig {
