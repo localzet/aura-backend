@@ -43,12 +43,12 @@ jobs:
         with:
           repository: localzet/aura-docs
           ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
 
       - name: Get Frontend previous tag
         id: frontend-prev-tag
         run: |
-          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh auth login --with-token <<< "${{ secrets.TOKEN }}"
           PREV_TAG=$(gh release list --repo localzet/aura-frontend --limit 2 | tail -n 1 | cut -f 1)
           echo "tag=$PREV_TAG" >> $GITHUB_OUTPUT
 
@@ -81,7 +81,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           repository: localzet/aura-docs
           target_commitish: ${{ steps.commit.outputs.sha }}
