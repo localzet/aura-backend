@@ -12,8 +12,7 @@ export class AdminRepository implements ICrud<AdminEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly adminConverter: AdminConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: AdminEntity): Promise<AdminEntity> {
         const model = this.adminConverter.fromEntityToPrismaModel(entity);

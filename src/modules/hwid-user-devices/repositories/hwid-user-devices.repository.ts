@@ -9,12 +9,12 @@ import { HwidUserDevicesConverter } from '../hwid-user-devices.converter';
 
 @Injectable()
 export class HwidUserDevicesRepository
-    implements Omit<ICrudWithStringId<HwidUserDeviceEntity>, 'deleteById' | 'findById' | 'update'> {
+    implements Omit<ICrudWithStringId<HwidUserDeviceEntity>, 'deleteById' | 'findById' | 'update'>
+{
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly converter: HwidUserDevicesConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: HwidUserDeviceEntity): Promise<HwidUserDeviceEntity> {
         const model = this.converter.fromEntityToPrismaModel(entity);

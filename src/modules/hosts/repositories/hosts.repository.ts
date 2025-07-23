@@ -18,8 +18,7 @@ export class HostsRepository implements ICrud<HostsEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly hostsConverter: HostsConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: HostsEntity): Promise<HostsEntity> {
         const model = this.hostsConverter.fromEntityToPrismaModel(entity);

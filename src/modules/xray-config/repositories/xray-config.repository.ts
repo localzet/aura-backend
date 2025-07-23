@@ -14,8 +14,7 @@ export class XrayConfigRepository implements ICrud<XrayConfigEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly converter: XrayConfigConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: XrayConfigEntity): Promise<XrayConfigEntity> {
         const model = this.converter.fromEntityToPrismaModel(entity);

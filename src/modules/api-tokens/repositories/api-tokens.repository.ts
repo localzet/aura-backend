@@ -12,8 +12,7 @@ export class ApiTokensRepository implements ICrud<ApiTokenEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly apiTokenConverter: ApiTokenConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: ApiTokenEntity): Promise<ApiTokenEntity> {
         const model = this.apiTokenConverter.fromEntityToPrismaModel(entity);

@@ -9,12 +9,12 @@ import { NodesTrafficUsageHistoryConverter } from '../nodes-traffic-usage-histor
 
 @Injectable()
 export class NodesTrafficUsageHistoryRepository
-    implements ICrudWithId<NodesTrafficUsageHistoryEntity> {
+    implements ICrudWithId<NodesTrafficUsageHistoryEntity>
+{
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly converter: NodesTrafficUsageHistoryConverter,
-    ) {
-    }
+    ) {}
 
     public async create(
         entity: NodesTrafficUsageHistoryEntity,
@@ -38,9 +38,9 @@ export class NodesTrafficUsageHistoryRepository
     }
 
     public async update({
-                            id,
-                            ...data
-                        }: Partial<NodesTrafficUsageHistoryEntity>): Promise<NodesTrafficUsageHistoryEntity> {
+        id,
+        ...data
+    }: Partial<NodesTrafficUsageHistoryEntity>): Promise<NodesTrafficUsageHistoryEntity> {
         const result = await this.prisma.tx.nodesTrafficUsageHistory.update({
             where: {
                 id,

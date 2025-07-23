@@ -12,8 +12,7 @@ export class UserTrafficHistoryRepository implements ICrudWithId<UserTrafficHist
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly converter: UserTrafficHistoryConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: UserTrafficHistoryEntity): Promise<UserTrafficHistoryEntity> {
         const model = this.converter.fromEntityToPrismaModel(entity);
@@ -35,9 +34,9 @@ export class UserTrafficHistoryRepository implements ICrudWithId<UserTrafficHist
     }
 
     public async update({
-                            id,
-                            ...data
-                        }: Partial<UserTrafficHistoryEntity>): Promise<UserTrafficHistoryEntity> {
+        id,
+        ...data
+    }: Partial<UserTrafficHistoryEntity>): Promise<UserTrafficHistoryEntity> {
         const result = await this.prisma.tx.userTrafficHistory.update({
             where: {
                 id,

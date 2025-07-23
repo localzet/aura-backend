@@ -15,8 +15,7 @@ export class InboundsRepository implements ICrud<InboundsEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly inboundsConverter: InboundsConverter,
-    ) {
-    }
+    ) {}
 
     public async findAll(): Promise<InboundsEntity[]> {
         const inbounds = await this.prisma.tx.inbounds.findMany();
