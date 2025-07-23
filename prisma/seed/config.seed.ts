@@ -737,8 +737,7 @@ async function seedKeygen() {
                 }
 
                 if (
-                    existingConfig &&
-                    existingConfig.pubKey &&
+                    existingConfig?.pubKey &&
                     existingConfig.privKey &&
                     (!existingConfig.caCert ||
                         !existingConfig.caKey ||
