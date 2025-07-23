@@ -29,8 +29,7 @@ export class NodesRepository implements ICrud<NodesEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly nodesConverter: NodesConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: NodesEntity): Promise<NodesEntity> {
         const model = this.nodesConverter.fromEntityToPrismaModel(entity);
@@ -120,7 +119,7 @@ export class NodesRepository implements ICrud<NodesEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.nodes.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async reorderMany(dto: IReorderNode[]): Promise<boolean> {

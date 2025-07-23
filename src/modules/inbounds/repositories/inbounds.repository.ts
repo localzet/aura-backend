@@ -15,8 +15,7 @@ export class InboundsRepository implements ICrud<InboundsEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly inboundsConverter: InboundsConverter,
-    ) {
-    }
+    ) {}
 
     public async findAll(): Promise<InboundsEntity[]> {
         const inbounds = await this.prisma.tx.inbounds.findMany();
@@ -97,7 +96,7 @@ export class InboundsRepository implements ICrud<InboundsEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.inbounds.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async getInboundStatsByUuid(uuid: string): Promise<InboundWithStatsEntity | null> {

@@ -34,7 +34,10 @@ import {
     USER_INCLUDE_INBOUNDS,
     USER_INCLUDE_INBOUNDS_AND_LAST_CONNECTED_NODE,
 } from '../interfaces';
-import { ILastConnectedNodeFromBuilder, UsersLastConnectedNodeBuilder } from '../builders/last-connected-node';
+import {
+    ILastConnectedNodeFromBuilder,
+    UsersLastConnectedNodeBuilder,
+} from '../builders/last-connected-node';
 import { TriggerThresholdNotificationsBuilder } from '../builders/trigger-threshold-notifications-builder';
 import { UserConverter } from '../users.converter';
 
@@ -45,8 +48,7 @@ export class UsersRepository implements ICrud<UserEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly userConverter: UserConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: UserEntity): Promise<UserEntity> {
         const model = this.userConverter.fromEntityToPrismaModel(entity);
@@ -314,12 +316,12 @@ export class UsersRepository implements ICrud<UserEntity> {
     }
 
     public async getAllUsersV2({
-                                   start,
-                                   size,
-                                   filters,
-                                   filterModes,
-                                   sorting,
-                               }: GetAllUsersCommand.RequestQuery): Promise<[UserWithAiAndLcnRawEntity[], number]> {
+        start,
+        size,
+        filters,
+        filterModes,
+        sorting,
+    }: GetAllUsersCommand.RequestQuery): Promise<[UserWithAiAndLcnRawEntity[], number]> {
         const where = filters?.reduce((acc, filter) => {
             const mode = filterModes?.[filter.id] || 'contains';
 
@@ -432,9 +434,9 @@ export class UsersRepository implements ICrud<UserEntity> {
     }
 
     public async getUsersWithPagination({
-                                            start,
-                                            size,
-                                        }: GetAllUsersCommand.RequestQuery): Promise<[UserWithActiveInboundsEntity[], number]> {
+        start,
+        size,
+    }: GetAllUsersCommand.RequestQuery): Promise<[UserWithActiveInboundsEntity[], number]> {
         const [users, total] = await Promise.all([
             this.prisma.tx.users.findMany({
                 skip: start,
@@ -532,9 +534,9 @@ export class UsersRepository implements ICrud<UserEntity> {
     }
 
     public async updateUserWithActiveInbounds({
-                                                  uuid,
-                                                  ...data
-                                              }: Partial<UserWithActiveInboundsEntity>): Promise<UserWithActiveInboundsEntity> {
+        uuid,
+        ...data
+    }: Partial<UserWithActiveInboundsEntity>): Promise<UserWithActiveInboundsEntity> {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { activeUserInbounds: _, ...updateData } = data;
 
@@ -593,7 +595,7 @@ export class UsersRepository implements ICrud<UserEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.users.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async getUserStats(): Promise<IUserStats> {
@@ -682,7 +684,7 @@ export class UsersRepository implements ICrud<UserEntity> {
         return result || 0;
     }
 
-    public async* getUsersForConfigStream(
+    public async *getUsersForConfigStream(
         excludedInbounds: InboundsEntity[],
     ): AsyncGenerator<UserForConfigEntity[]> {
         const BATCH_SIZE = 10_000;

@@ -14,8 +14,7 @@ export class XrayConfigRepository implements ICrud<XrayConfigEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly converter: XrayConfigConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: XrayConfigEntity): Promise<XrayConfigEntity> {
         const model = this.converter.fromEntityToPrismaModel(entity);
@@ -75,6 +74,6 @@ export class XrayConfigRepository implements ICrud<XrayConfigEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.xrayConfig.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }

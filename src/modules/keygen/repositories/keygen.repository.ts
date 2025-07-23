@@ -12,8 +12,7 @@ export class KeygenRepository implements ICrud<KeygenEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly keygenConverter: KeygenConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: KeygenEntity): Promise<KeygenEntity> {
         const model = this.keygenConverter.fromEntityToPrismaModel(entity);
@@ -66,6 +65,6 @@ export class KeygenRepository implements ICrud<KeygenEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.keygen.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }

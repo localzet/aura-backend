@@ -12,8 +12,7 @@ export class ApiTokensRepository implements ICrud<ApiTokenEntity> {
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly apiTokenConverter: ApiTokenConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: ApiTokenEntity): Promise<ApiTokenEntity> {
         const model = this.apiTokenConverter.fromEntityToPrismaModel(entity);
@@ -69,6 +68,6 @@ export class ApiTokensRepository implements ICrud<ApiTokenEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.apiTokens.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }

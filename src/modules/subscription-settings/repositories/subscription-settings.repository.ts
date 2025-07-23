@@ -14,8 +14,7 @@ export class SubscriptionSettingsRepository implements ICrud<SubscriptionSetting
     constructor(
         private readonly prisma: TransactionHost<TransactionalAdapterPrisma>,
         private readonly converter: SubscriptionSettingsConverter,
-    ) {
-    }
+    ) {}
 
     public async create(entity: SubscriptionSettingsEntity): Promise<SubscriptionSettingsEntity> {
         const model = this.converter.fromEntityToPrismaModel(entity);
@@ -43,9 +42,9 @@ export class SubscriptionSettingsRepository implements ICrud<SubscriptionSetting
     }
 
     public async update({
-                            uuid,
-                            ...data
-                        }: Partial<SubscriptionSettingsEntity>): Promise<SubscriptionSettingsEntity> {
+        uuid,
+        ...data
+    }: Partial<SubscriptionSettingsEntity>): Promise<SubscriptionSettingsEntity> {
         const model = this.converter.fromEntityToPrismaModel({
             uuid,
             ...data,
@@ -98,6 +97,6 @@ export class SubscriptionSettingsRepository implements ICrud<SubscriptionSetting
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.subscriptionSettings.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }
