@@ -11,9 +11,7 @@ import { ICommandResponse } from '@common/types/command-response.type';
 import { fromNanoToNumber } from '@common/utils/nano';
 import { AxiosService } from '@common/axios';
 
-import {
-    BulkUpsertUserHistoryEntryCommand,
-} from '@modules/nodes-user-usage-history/commands/bulk-upsert-user-history-entry';
+import { BulkUpsertUserHistoryEntryCommand } from '@modules/nodes-user-usage-history/commands/bulk-upsert-user-history-entry';
 import { NodesUserUsageHistoryEntity } from '@modules/nodes-user-usage-history/entities';
 import { GetUserByUsernameQuery } from '@modules/users/queries/get-user-by-username';
 import { UpdateNodeCommand } from '@modules/nodes/commands/update-node';
@@ -81,7 +79,7 @@ export class RecordUserUsageQueueProcessor extends WorkerHost {
 
         let users = response.response.users.filter((user) => {
             if (user.username.startsWith('http')) {
-                this.logger.debug("Skipping user with https:// or http:// in username");
+                this.logger.debug('Skipping user with https:// or http:// in username');
                 return false;
             }
             if (user.downlink === 0 && user.uplink === 0) {
