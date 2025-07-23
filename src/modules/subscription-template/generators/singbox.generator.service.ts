@@ -54,8 +54,7 @@ interface TransportConfig {
 
 @Injectable()
 export class SingBoxGeneratorService {
-    constructor(private readonly subscriptionTemplateService: SubscriptionTemplateService) {
-    }
+    constructor(private readonly subscriptionTemplateService: SubscriptionTemplateService) {}
 
     public async generateConfig(hosts: IFormattedHost[], version: null | string): Promise<string> {
         try {
