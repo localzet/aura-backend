@@ -34,7 +34,11 @@ import { CheckHwidExistsQuery } from '@modules/hwid-user-devices/queries/check-h
 import { IFormattedHost } from '@modules/subscription-template/generators/interfaces';
 import { GetUserByUsernameQuery } from '@modules/users/queries/get-user-by-username';
 
-import { SubscriptionNotFoundResponse, SubscriptionRawResponse, SubscriptionWithConfigResponse } from './models';
+import {
+    SubscriptionNotFoundResponse,
+    SubscriptionRawResponse,
+    SubscriptionWithConfigResponse,
+} from './models';
 import { UpdateSubLastOpenedAndUserAgentCommand } from '../users/commands/update-sub-last-opened-and-user-agent';
 import { UserWithActiveInboundsEntity } from '../users/entities/user-with-active-inbounds.entity';
 import { HostWithInboundTagEntity } from '../hosts/entities/host-with-inbound-tag.entity';
@@ -748,7 +752,7 @@ export class SubscriptionService {
             });
 
             if (!result.isOk || !result.response) {
-                this.logger.error(`Error creating Hwid user device, access forbidden.`);
+                this.logger.error('Error creating Hwid user device, access forbidden.');
                 return {
                     isOk: false,
                     response: {
