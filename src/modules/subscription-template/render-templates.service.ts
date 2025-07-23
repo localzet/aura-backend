@@ -24,8 +24,7 @@ export class RenderTemplatesService {
         private readonly xrayGeneratorService: XrayGeneratorService,
         private readonly singBoxGeneratorService: SingBoxGeneratorService,
         private readonly xrayJsonGeneratorService: XrayJsonGeneratorService,
-    ) {
-    }
+    ) {}
 
     public async generateSubscription(params: IGenerateSubscription): Promise<{
         contentType: string;
@@ -136,7 +135,6 @@ export class RenderTemplatesService {
                     contentType: SUBSCRIPTION_CONFIG_TYPES.SING_BOX.CONTENT_TYPE,
                 };
 
-            
             case 'SINGBOX_LEGACY':
                 return {
                     sub: await this.singBoxGeneratorService.generateConfig(
