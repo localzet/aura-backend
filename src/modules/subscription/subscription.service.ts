@@ -748,7 +748,7 @@ export class SubscriptionService {
             });
 
             if (!result.isOk || !result.response) {
-                this.logger.error(`Error creating Hwid user device, access forbidden.`);
+                this.logger.error("Error creating Hwid user device, access forbidden.");
                 return {
                     isOk: false,
                     response: {

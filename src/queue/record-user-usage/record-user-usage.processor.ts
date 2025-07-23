@@ -81,7 +81,7 @@ export class RecordUserUsageQueueProcessor extends WorkerHost {
 
         let users = response.response.users.filter((user) => {
             if (user.username.startsWith('http')) {
-                this.logger.debug(`Skipping user with https:// or http:// in username`);
+                this.logger.debug("Skipping user with https:// or http:// in username");
                 return false;
             }
             if (user.downlink === 0 && user.uplink === 0) {

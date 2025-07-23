@@ -93,9 +93,9 @@ async function resetCerts() {
                 uuid: keygen.uuid,
             },
         });
-        consola.success(`✅ Certs deleted successfully.`);
+        consola.success("✅ Certs deleted successfully.");
         consola.warn(
-            `Restart Aura to apply changes by running "docker compose down && docker compose up -d".`,
+            'Restart Aura to apply changes by running "docker compose down && docker compose up -d".',
         );
     } catch (error) {
         consola.error('❌ Failed to reset certs:', error);
