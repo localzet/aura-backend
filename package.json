@@ -1,6 +1,6 @@
 {
   "name": "@localzet/aura-backend",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Aura Backend",
   "private": false,
   "type": "commonjs",
