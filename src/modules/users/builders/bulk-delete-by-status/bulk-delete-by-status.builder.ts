@@ -5,7 +5,7 @@ import { TUsersStatus } from '@localzet/aura-contract';
 export class BulkDeleteByStatusBuilder {
     public query: Prisma.Sql;
 
-    constructor(status: TUsersStatus, limit: number = 30000) {
+    constructor(status: TUsersStatus, limit = 30000) {
         this.query = this.getQuery(status, limit);
         return this;
     }
