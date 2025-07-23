@@ -7,7 +7,7 @@ import { EndpointDetails } from '@localzet/aura-contract';
 interface ApiEndpointOptions {
     command: { endpointDetails: EndpointDetails };
     httpCode: number;
-    apiBody?: string | Function | Type<unknown> | [Function] | undefined;
+    apiBody?: string | Function | Type<unknown> | [Function];
 }
 
 export function Endpoint(options: ApiEndpointOptions) {
