@@ -66,6 +66,6 @@ export class KeygenRepository implements ICrud<KeygenEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.keygen.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }

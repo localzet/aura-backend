@@ -62,6 +62,6 @@ export class HwidUserDevicesRepository
         const result = await this.prisma.tx.hwidUserDevices.delete({
             where: { hwid_userUuid: { hwid, userUuid } },
         });
-        return !!result;
+        return Boolean(result);
     }
 }

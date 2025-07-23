@@ -69,7 +69,7 @@ export class AdminRepository implements ICrud<AdminEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.admin.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async countByCriteria(dto: Partial<AdminEntity>): Promise<number> {

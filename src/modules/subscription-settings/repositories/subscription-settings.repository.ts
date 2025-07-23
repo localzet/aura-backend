@@ -98,6 +98,6 @@ export class SubscriptionSettingsRepository implements ICrud<SubscriptionSetting
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.subscriptionSettings.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }

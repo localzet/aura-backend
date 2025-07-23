@@ -59,6 +59,6 @@ export class UserTrafficHistoryRepository implements ICrudWithId<UserTrafficHist
 
     public async deleteById(id: bigint | number): Promise<boolean> {
         const result = await this.prisma.tx.userTrafficHistory.delete({ where: { id } });
-        return !!result;
+        return Boolean(result);
     }
 }

@@ -62,6 +62,6 @@ export class NodesTrafficUsageHistoryRepository
 
     public async deleteById(id: bigint | number): Promise<boolean> {
         const result = await this.prisma.tx.nodesTrafficUsageHistory.delete({ where: { id } });
-        return !!result;
+        return Boolean(result);
     }
 }

@@ -97,7 +97,7 @@ export class InboundsRepository implements ICrud<InboundsEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.inbounds.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async getInboundStatsByUuid(uuid: string): Promise<InboundWithStatsEntity | null> {

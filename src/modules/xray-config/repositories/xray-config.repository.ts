@@ -75,6 +75,6 @@ export class XrayConfigRepository implements ICrud<XrayConfigEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.xrayConfig.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }

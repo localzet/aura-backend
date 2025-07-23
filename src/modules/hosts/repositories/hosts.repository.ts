@@ -77,12 +77,12 @@ export class HostsRepository implements ICrud<HostsEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.hosts.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async deleteMany(uuids: string[]): Promise<boolean> {
         const result = await this.prisma.tx.hosts.deleteMany({ where: { uuid: { in: uuids } } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async enableMany(uuids: string[]): Promise<boolean> {
@@ -90,7 +90,7 @@ export class HostsRepository implements ICrud<HostsEntity> {
             where: { uuid: { in: uuids } },
             data: { isDisabled: false },
         });
-        return !!result;
+        return Boolean(result);
     }
 
     public async disableMany(uuids: string[]): Promise<boolean> {
@@ -98,7 +98,7 @@ export class HostsRepository implements ICrud<HostsEntity> {
             where: { uuid: { in: uuids } },
             data: { isDisabled: true },
         });
-        return !!result;
+        return Boolean(result);
     }
 
     public async setInboundToManyHosts(uuids: string[], inboundUuid: string): Promise<boolean> {
@@ -106,7 +106,7 @@ export class HostsRepository implements ICrud<HostsEntity> {
             where: { uuid: { in: uuids } },
             data: { inboundUuid },
         });
-        return !!result;
+        return Boolean(result);
     }
 
     public async setPortToManyHosts(uuids: string[], port: number): Promise<boolean> {
@@ -114,7 +114,7 @@ export class HostsRepository implements ICrud<HostsEntity> {
             where: { uuid: { in: uuids } },
             data: { port },
         });
-        return !!result;
+        return Boolean(result);
     }
 
     public async findActiveHostsByUserUuid(userUuid: string): Promise<HostWithInboundTagEntity[]> {

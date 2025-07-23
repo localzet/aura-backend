@@ -69,6 +69,6 @@ export class ApiTokensRepository implements ICrud<ApiTokenEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.apiTokens.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 }

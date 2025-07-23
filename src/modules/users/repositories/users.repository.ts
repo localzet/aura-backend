@@ -593,7 +593,7 @@ export class UsersRepository implements ICrud<UserEntity> {
 
     public async deleteByUUID(uuid: string): Promise<boolean> {
         const result = await this.prisma.tx.users.delete({ where: { uuid } });
-        return !!result;
+        return Boolean(result);
     }
 
     public async getUserStats(): Promise<IUserStats> {
