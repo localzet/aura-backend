@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 
 import { PrismaClient } from '@prisma/client';
 import consola from 'consola';
