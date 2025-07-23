@@ -1,5 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
-import { All, applyDecorators, Delete, Get, HttpCode, Patch, Post, Put, Type } from '@nestjs/common';
+import {
+    All,
+    applyDecorators,
+    Delete,
+    Get,
+    HttpCode,
+    Patch,
+    Post,
+    Put,
+    Type,
+} from '@nestjs/common';
 import { ApiBody, ApiOperation } from '@nestjs/swagger';
 
 import { EndpointDetails } from '@localzet/aura-contract';
